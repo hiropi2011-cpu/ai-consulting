@@ -1,0 +1,21 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Build / temp
+*.log
+node_modules/
+
+# Image source / backup
+*.psd
+*.ai
+*.fig
+
+# python helper (kept locally only)
+optimize_images.py
