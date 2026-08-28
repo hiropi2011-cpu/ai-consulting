@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" preserveAspectRatio="xMidYMid slice" role="img" aria-label="AI業務活用リスキリング研修 イメージ">
+  <defs>
+    <linearGradient id="rsk-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0B0A1A"/>
+      <stop offset="0.55" stop-color="#110E24"/>
+      <stop offset="1" stop-color="#1B0E30"/>
+    </linearGradient>
+    <radialGradient id="rsk-glow" cx="0.72" cy="0.26" r="0.62">
+      <stop offset="0" stop-color="#E72FC2" stop-opacity="0.55"/>
+      <stop offset="0.42" stop-color="#B12BE0" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#B12BE0" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="rsk-glow2" cx="0.16" cy="0.88" r="0.5">
+      <stop offset="0" stop-color="#2FC7E8" stop-opacity="0.26"/>
+      <stop offset="1" stop-color="#2FC7E8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rsk-line" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FF5DD8"/>
+      <stop offset="1" stop-color="#8B2DD7"/>
+    </linearGradient>
+    <linearGradient id="rsk-bar" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#E72FC2" stop-opacity="0.08"/>
+      <stop offset="1" stop-color="#FF5DD8" stop-opacity="0.5"/>
+    </linearGradient>
+    <radialGradient id="rsk-node" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#FFE3F7"/>
+      <stop offset="0.5" stop-color="#FF5DD8"/>
+      <stop offset="1" stop-color="#B12BE0"/>
+    </radialGradient>
+    <radialGradient id="rsk-halo" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#FF5DD8" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#FF5DD8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+
+  <!-- base + ambient glows -->
+  <rect width="1600" height="900" fill="url(#rsk-bg)"/>
+  <rect width="1600" height="900" fill="url(#rsk-glow)"/>
+  <rect width="1600" height="900" fill="url(#rsk-glow2)"/>
+
+  <!-- ascending growth bars: reskilling = stepping up skills -->
+  <g>
+    <rect x="120" y="568" width="92" height="200" rx="16" fill="url(#rsk-bar)"/>
+    <rect x="252" y="496" width="92" height="272" rx="16" fill="url(#rsk-bar)"/>
+    <rect x="384" y="412" width="92" height="356" rx="16" fill="url(#rsk-bar)"/>
+    <rect x="516" y="316" width="92" height="452" rx="16" fill="url(#rsk-bar)"/>
+  </g>
+  <!-- rising trajectory through the bars -->
+  <polyline points="166,560 298,488 430,404 562,308" fill="none"
+            stroke="url(#rsk-line)" stroke-width="3" stroke-linecap="round" opacity="0.55"/>
+  <circle cx="562" cy="308" r="9" fill="#FFE3F7"/>
+
+  <!-- knowledge / AI network constellation -->
+  <g stroke="url(#rsk-line)" stroke-width="1.8" fill="none" opacity="0.5">
+    <line x1="900" y1="360" x2="1010" y2="250"/>
+    <line x1="1010" y1="250" x2="1150" y2="300"/>
+    <line x1="1150" y1="300" x2="1290" y2="220"/>
+    <line x1="1150" y1="300" x2="1210" y2="450"/>
+    <line x1="1210" y1="450" x2="1060" y2="480"/>
+    <line x1="1060" y1="480" x2="900" y2="360"/>
+    <line x1="1290" y1="220" x2="1380" y2="370"/>
+    <line x1="1210" y1="450" x2="1380" y2="370"/>
+    <line x1="1210" y1="450" x2="1300" y2="580"/>
+    <line x1="1010" y1="250" x2="1110" y2="150"/>
+    <line x1="1290" y1="220" x2="1110" y2="150"/>
+  </g>
+
+  <!-- node halos -->
+  <g>
+    <circle cx="1150" cy="300" r="46" fill="url(#rsk-halo)"/>
+    <circle cx="1290" cy="220" r="38" fill="url(#rsk-halo)"/>
+    <circle cx="1210" cy="450" r="40" fill="url(#rsk-halo)"/>
+    <circle cx="562"  cy="308" r="34" fill="url(#rsk-halo)"/>
+  </g>
+  <!-- nodes -->
+  <g>
+    <circle cx="900"  cy="360" r="7"  fill="#FF8EE4"/>
+    <circle cx="1010" cy="250" r="9"  fill="url(#rsk-node)"/>
+    <circle cx="1150" cy="300" r="15" fill="url(#rsk-node)"/>
+    <circle cx="1290" cy="220" r="12" fill="url(#rsk-node)"/>
+    <circle cx="1210" cy="450" r="13" fill="url(#rsk-node)"/>
+    <circle cx="1060" cy="480" r="8"  fill="#FF8EE4"/>
+    <circle cx="1380" cy="370" r="9"  fill="url(#rsk-node)"/>
+    <circle cx="1300" cy="580" r="7"  fill="#C77BEA"/>
+    <circle cx="1110" cy="150" r="8"  fill="#FF8EE4"/>
+  </g>
+
+  <!-- subtle spark accents -->
+  <g stroke="#FFC0EE" stroke-width="2.2" stroke-linecap="round" opacity="0.5">
+    <line x1="760" y1="170" x2="760" y2="200"/>
+    <line x1="745" y1="185" x2="775" y2="185"/>
+    <line x1="690" y1="650" x2="690" y2="672"/>
+    <line x1="679" y1="661" x2="701" y2="661"/>
+  </g>
+</svg>

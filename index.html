@@ -43,7 +43,10 @@
 <!-- ============== HERO ============== -->
 <section class="hero">
   <div class="hero__bg">
-    <img src="images/hero.jpg" alt="" loading="eager">
+    <picture>
+      <source media="(max-width: 768px)" srcset="images/photos/hero-mobile.jpg">
+      <img src="images/photos/hero.jpg" alt="" loading="eager">
+    </picture>
   </div>
   <div class="container">
     <div class="hero__content">
@@ -100,6 +103,10 @@
 
     <div class="painpoints__grid">
       <div class="pain-card">
+        <div class="pain-card__photo">
+          <img src="images/photos/pain-corporate.jpg" alt="" loading="lazy">
+        </div>
+        <div class="pain-card__body">
         <div class="pain-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-4"/><path d="M9 9v.01M9 12v.01M9 15v.01M9 18v.01"/></svg>
         </div>
@@ -111,8 +118,13 @@
           <li>PoC（実証実験）で止まり、現場での定着が進まない</li>
           <li>社員のAIリテラシーを底上げしたい</li>
         </ul>
+        </div>
       </div>
       <div class="pain-card">
+        <div class="pain-card__photo">
+          <img src="images/photos/pain-education.jpg" alt="" loading="lazy">
+        </div>
+        <div class="pain-card__body">
         <div class="pain-card__icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
         </div>
@@ -124,6 +136,7 @@
           <li>DXハイスクール等の補助金を、効果的に活用したい</li>
           <li>教育に適したAIサービスの選び方が分からない</li>
         </ul>
+        </div>
       </div>
     </div>
 
@@ -176,6 +189,14 @@
   </div>
 </section>
 
+<!-- ============== PHOTO BAND ============== -->
+<section class="photo-band">
+  <img src="images/photos/band.jpg" alt="" loading="lazy">
+  <div class="container photo-band__inner">
+    <p>“導入して終わり”にしない。<br>成果が出るまで、現場と一緒に。</p>
+  </div>
+</section>
+
 <!-- ============== SERVICES ============== -->
 <section class="services" id="services">
   <div class="container">
@@ -184,14 +205,14 @@
       <h2 class="section-title">私たちの<span class="accent">サービス</span></h2>
       <p class="section-lead">
         企業のDX、教育現場の進化。<br>
-        それぞれのフィールドに最適化された、4つのサービスをご用意しています。
+        それぞれのフィールドに最適化された、5つのサービスをご用意しています。
       </p>
     </div>
 
     <div class="services__grid">
 
       <article class="service-card">
-        <div class="service-card__top"></div>
+        <div class="service-card__top"><img src="images/photos/svc-corporate.jpg" alt="" loading="lazy"></div>
         <div class="service-card__body">
           <div class="service-card__head">
             <div class="service-card__icon">
@@ -217,7 +238,7 @@
       </article>
 
       <article class="service-card">
-        <div class="service-card__top"></div>
+        <div class="service-card__top"><img src="images/photos/svc-education.jpg" alt="" loading="lazy"></div>
         <div class="service-card__body">
           <div class="service-card__head">
             <div class="service-card__icon">
@@ -243,7 +264,7 @@
       </article>
 
       <article class="service-card">
-        <div class="service-card__top"></div>
+        <div class="service-card__top"><img src="images/photos/svc-teacher.jpg" alt="" loading="lazy"></div>
         <div class="service-card__body">
           <div class="service-card__head">
             <div class="service-card__icon">
@@ -269,7 +290,7 @@
       </article>
 
       <article class="service-card">
-        <div class="service-card__top"></div>
+        <div class="service-card__top"><img src="images/photos/svc-matching.jpg" alt="" loading="lazy"></div>
         <div class="service-card__body">
           <div class="service-card__head">
             <div class="service-card__icon">
@@ -289,6 +310,32 @@
             <li>PoCパートナーマッチング</li>
           </ul>
           <a href="services/matching.html" class="service-card__link">
+            詳しく見る <span>→</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="service-card">
+        <div class="service-card__top"><img src="images/photos/svc-reskilling.jpg" alt="" loading="lazy"></div>
+        <div class="service-card__body">
+          <div class="service-card__head">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10 12 5 2 10l10 5 10-5z"/><path d="M6 12v5c0 1 2.5 3 6 3s6-2 6-3v-5"/><path d="M22 10v6"/></svg>
+            </div>
+            <div>
+              <div class="service-card__label">Service 05</div>
+            </div>
+          </div>
+          <h3>AI業務活用 リスキリング研修</h3>
+          <p>AIを"知っている"から"業務で使える"へ。御社の実務に合わせたオーダーメイド研修で、社員がAIを使いこなす組織をつくります。補助金・助成金が使える形での設計もご支援します。</p>
+          <ul class="service-card__menu">
+            <li>AI業務活用の基礎（講義＋デモ）</li>
+            <li>プロンプト設計実習（ハンズオン）</li>
+            <li>自社業務への適用ワーク</li>
+            <li>社内AIガバナンス設計</li>
+            <li>補助金・助成金が使える形で設計</li>
+          </ul>
+          <a href="services/reskilling.html" class="service-card__link">
             詳しく見る <span>→</span>
           </a>
         </div>
@@ -351,6 +398,8 @@
 
     <div class="cases__grid">
       <article class="case-card">
+        <div class="case-card__photo"><img src="images/photos/case-manufacturing.jpg" alt="" loading="lazy"></div>
+        <div class="case-card__body">
         <span class="case-card__tag">企業 / 製造業</span>
         <h3>全社で生成AIを使いこなす文化が定着</h3>
         <dl>
@@ -367,9 +416,12 @@
             <dd>社内利用率 90%超／問い合わせ対応工数 約40%削減</dd>
           </div>
         </dl>
+        </div>
       </article>
 
       <article class="case-card">
+        <div class="case-card__photo"><img src="images/photos/case-student.jpg" alt="" loading="lazy"></div>
+        <div class="case-card__body">
         <span class="case-card__tag">教育 / 通信制高校</span>
         <h3>多様な生徒へ、きめ細やかなケアを実現</h3>
         <dl>
@@ -386,9 +438,12 @@
             <dd>相談対応のレスポンス時間が大幅短縮／生徒満足度の向上</dd>
           </div>
         </dl>
+        </div>
       </article>
 
       <article class="case-card">
+        <div class="case-card__photo"><img src="images/photos/case-teacher.jpg" alt="" loading="lazy"></div>
+        <div class="case-card__body">
         <span class="case-card__tag">教育 / 学校法人</span>
         <h3>教員の時間を、生徒と向き合う時間へ</h3>
         <dl>
@@ -405,6 +460,7 @@
             <dd>教員一人あたり週 約5時間の業務時間削減</dd>
           </div>
         </dl>
+        </div>
       </article>
     </div>
 
@@ -498,33 +554,34 @@
       <h2 class="section-title">会社概要</h2>
     </div>
     <div class="pricing-table" style="margin-top: 20px;">
-      <div class="pricing-row" style="grid-template-columns: 220px 1fr;">
+      <div class="pricing-row" style="grid-template-columns: 120px 1fr;">
         <div class="pricing-row__name">商号</div>
         <div>AIコンサルティング株式会社</div>
       </div>
-      <div class="pricing-row" style="grid-template-columns: 220px 1fr;">
+      <div class="pricing-row" style="grid-template-columns: 120px 1fr;">
         <div class="pricing-row__name">所在地</div>
         <div>〒104-0061 東京都中央区銀座七丁目５番４号</div>
       </div>
-      <div class="pricing-row" style="grid-template-columns: 220px 1fr;">
+      <div class="pricing-row" style="grid-template-columns: 120px 1fr;">
         <div class="pricing-row__name">設立</div>
         <div>平成31年（2019年）1月4日</div>
       </div>
-      <div class="pricing-row" style="grid-template-columns: 220px 1fr;">
+      <div class="pricing-row" style="grid-template-columns: 120px 1fr;">
         <div class="pricing-row__name">代表者</div>
         <div>代表取締役社長 中田 博之</div>
       </div>
-      <div class="pricing-row" style="grid-template-columns: 220px 1fr;">
+      <div class="pricing-row" style="grid-template-columns: 120px 1fr;">
         <div class="pricing-row__name">資本金</div>
         <div>7,530万円</div>
       </div>
-      <div class="pricing-row" style="grid-template-columns: 220px 1fr;">
+      <div class="pricing-row" style="grid-template-columns: 120px 1fr;">
         <div class="pricing-row__name">事業内容</div>
         <div>
           ・企業向けAI導入コンサルティング<br>
           ・通信制高校向けAIソリューション導入支援<br>
           ・教員向けAI研修・AIチューター導入支援<br>
           ・AI事業者マッチング・アライアンス<br>
+          ・AI業務活用リスキリング研修<br>
           ・上記に附帯または関連する一切の業務
         </div>
       </div>
@@ -534,6 +591,7 @@
 
 <!-- ============== FINAL CTA ============== -->
 <section class="final-cta" id="contact">
+  <div class="final-cta__bg"><img src="images/photos/cta-bg.jpg" alt="" loading="lazy"></div>
   <div class="container-narrow">
     <h2>AI活用、まずは話してみませんか？</h2>
     <p>
@@ -574,6 +632,7 @@
           <li><a href="services/education.html">通信制高校向け</a></li>
           <li><a href="services/teacher.html">教員向けAI研修</a></li>
           <li><a href="services/matching.html">AI事業者マッチング</a></li>
+          <li><a href="services/reskilling.html">AI業務活用リスキリング研修</a></li>
         </ul>
       </div>
 

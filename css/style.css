@@ -111,6 +111,28 @@ section { padding: 110px 0; position: relative; }
   background-clip: text;
   color: transparent;
 }
+
+/* ============================================================
+   グラデ文字フォールバック
+   background-clip:text を描画できないブラウザでは、グラデ文字が
+   透明化して消える。その環境のときだけ実ピンクで表示する。
+   （対応ブラウザではこのブロックは無効＝従来のグラデ表示を維持）
+   ============================================================ */
+@supports not ((-webkit-background-clip: text) or (background-clip: text)) {
+  .section-eyebrow,
+  .section-title .accent,
+  .hero__title .accent,
+  .painpoints__closing .accent,
+  .strength-card__num,
+  .service-hero h1 .accent,
+  .service-section h2 .accent,
+  .solution-card__num,
+  .form-hero h1 .accent {
+    background: none !important;
+    color: #FF5DD8 !important;
+    -webkit-text-fill-color: #FF5DD8 !important;
+  }
+}
 .section-lead {
   color: var(--text-soft);
   font-size: 17px;
@@ -141,9 +163,9 @@ section { padding: 110px 0; position: relative; }
   display: flex;
   align-items: center;
   gap: 10px;
-  height: 36px;
+  height: 64.4px;
 }
-.site-logo img { height: 36px; width: auto; }
+.site-logo img { height: 64.4px; width: auto; }
 .site-logo__text {
   font-weight: 700;
   font-size: 15px;
@@ -215,7 +237,7 @@ section { padding: 110px 0; position: relative; }
 /* ---------- Hero ---------- */
 .hero {
   position: relative;
-  padding: 180px 0 130px;
+  padding: 80px 0 100px;
   overflow: hidden;
   isolation: isolate;
 }
@@ -235,9 +257,9 @@ section { padding: 110px 0; position: relative; }
   position: absolute;
   inset: 0;
   background: linear-gradient(180deg,
-    rgba(7,7,15,.35) 0%,
-    rgba(7,7,15,.48) 50%,
-    rgba(7,7,15,.85) 100%); /* lighter overlay for +30% brightness */
+    rgba(7,7,15,.55) 0%,
+    rgba(7,7,15,.62) 45%,
+    rgba(7,7,15,.88) 100%); /* darker overlay for headline contrast */
 }
 .hero__bg::before {
   content: "";
@@ -288,11 +310,14 @@ section { padding: 110px 0; position: relative; }
   margin-bottom: 28px;
 }
 .hero__title .accent {
-  background: var(--grad-text);
+  color: #FF5DD8; /* グラデが乗らない環境でも必ずピンクで見えるフォールバック */
+  background: linear-gradient(135deg, #FF8AE6 0%, #FF3FCB 50%, #E72FC2 100%);
   -webkit-background-clip: text;
   background-clip: text;
-  color: transparent;
   display: inline-block;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .hero__title .accent { -webkit-text-fill-color: transparent; }
 }
 .hero__sub {
   font-size: clamp(15px, 1.6vw, 18px);
@@ -863,7 +888,7 @@ section { padding: 110px 0; position: relative; }
   gap: 48px;
   margin-bottom: 56px;
 }
-.footer-brand img { height: 40px; margin-bottom: 20px; }
+.footer-brand img { height: 62px; margin-bottom: 20px; }
 .footer-brand p {
   color: var(--text-mute);
   font-size: 13.5px;
@@ -1202,7 +1227,7 @@ section { padding: 110px 0; position: relative; }
 }
 .related-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 .related-card {
@@ -1245,14 +1270,16 @@ main { padding-top: 68px; }
   .process__grid::before { display: none; }
   .step-card { padding: 0 4px; }
   .step-card__num { width: 48px; height: 48px; font-size: 18px; }
-  .solution-grid, .related-grid { grid-template-columns: 1fr; }
+  .solution-grid { grid-template-columns: 1fr; }
+  .related-grid { grid-template-columns: repeat(2, 1fr); }
   .detail-steps { grid-template-columns: repeat(2, 1fr); }
   .pricing-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 22px; }
   .pricing-row.head { display: none; }
 }
 @media (max-width: 768px) {
   section { padding: 80px 0; }
-  .hero { padding: 140px 0 90px; }
+  .related-grid { grid-template-columns: 1fr; }
+  .hero { padding: 100px 0 72px; }
   .menu-toggle {
     display: flex;
     flex-direction: column;
@@ -1289,7 +1316,7 @@ main { padding-top: 68px; }
   .detail-steps { grid-template-columns: 1fr; }
   .menu-list li { grid-template-columns: 1fr; gap: 16px; }
   .menu-list__num { width: 44px; height: 44px; font-size: 16px; }
-  .pain-card, .service-card__body, .strength-card { padding: 32px 24px; }
+  .pain-card__body, .service-card__body, .strength-card { padding: 32px 24px; }
   .service-cta { padding: 44px 24px; }
 }
 @media (max-width: 480px) {
@@ -1577,4 +1604,266 @@ main { padding-top: 68px; }
   .datetime-grid { grid-template-columns: 1fr; }
   .form-submit .btn { min-width: 100%; width: 100%; }
   .form-hero { padding: 130px 0 50px; }
+}
+
+/* ===============================================
+   RESKILLING SERVICE (Service 05) — added 2026-06
+   Used on services/reskilling.html only.
+   =============================================== */
+
+/* Instructor profile card */
+.instructor {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  padding: 40px 44px;
+}
+.instructor__photo {
+  flex: 0 0 240px;
+  width: 240px;
+  height: 240px;
+  position: relative;
+  z-index: 0;
+}
+.instructor__photo::after {
+  content: "";
+  position: absolute;
+  inset: -12%;
+  z-index: -1;
+  /* 背後のブランドグロー（中心配置＝四隅均等） */
+  background: radial-gradient(circle at 50% 50%, rgba(231,47,194,.28), rgba(139,45,215,.12) 55%, transparent 76%);
+}
+.instructor__photo::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* ダーク基調に馴染ませる淡いブランド色のトーン調整（フェザーと同形） */
+  background: linear-gradient(155deg, rgba(231,47,194,.12), rgba(139,45,215,.14));
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 30%, rgba(0,0,0,.4) 58%, transparent 84%);
+          mask-image: radial-gradient(circle at 50% 50%, #000 30%, rgba(0,0,0,.4) 58%, transparent 84%);
+}
+.instructor__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* 輪郭を四隅均等に、広めにぼかして背景へ溶け込ませるフェザー処理 */
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 30%, rgba(0,0,0,.4) 58%, transparent 84%);
+          mask-image: radial-gradient(circle at 50% 50%, #000 30%, rgba(0,0,0,.4) 58%, transparent 84%);
+}
+.instructor__body { flex: 1 1 auto; min-width: 0; }
+.instructor__role {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--pink-light);
+  margin-bottom: 8px;
+}
+.instructor__name {
+  font-size: 24px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+.instructor p {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.instructor p + p { margin-top: 16px; }
+
+/* Subsidy callout */
+.subsidy-callout {
+  background: var(--bg-1);
+  border: 1px solid var(--line-soft);
+  border-left: 4px solid var(--pink);
+  border-radius: var(--radius);
+  padding: 32px 36px;
+}
+.subsidy-callout h3 {
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+.subsidy-callout p {
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.subsidy-callout__list {
+  list-style: none;
+  margin: 16px 0;
+  display: grid;
+  gap: 12px;
+}
+.subsidy-callout__list li {
+  position: relative;
+  padding-left: 22px;
+  color: var(--text-soft);
+  font-size: 15px;
+  line-height: 1.8;
+}
+.subsidy-callout__list li::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 12px;
+  width: 8px; height: 1px;
+  background: var(--pink);
+}
+.subsidy-callout__list strong { color: var(--pink-light); }
+.subsidy-callout__note {
+  margin-top: 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.85;
+}
+.subsidy-callout__note strong { color: var(--text-soft); }
+
+@media (max-width: 768px) {
+  .instructor { flex-direction: column; text-align: center; gap: 24px; padding: 32px 24px; }
+  .instructor__photo { flex-basis: auto; width: 200px; height: 200px; }
+  .subsidy-callout { padding: 26px 22px; }
+}
+
+/* ============================================================
+   Photo enhancements (2026-08) — Higgsfield生成の実写系写真
+   ============================================================ */
+
+/* --- Pain cards: 写真ヘッダー --- */
+.pain-card { padding: 0; }
+.pain-card__photo {
+  height: 210px;
+  overflow: hidden;
+  position: relative;
+}
+.pain-card__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .9;
+}
+.pain-card__photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(21,21,43,0) 50%, rgba(21,21,43,.94) 100%);
+}
+.pain-card__body { padding: 30px 44px 44px; }
+
+/* --- Service cards: 写真トップ --- */
+.service-card__top {
+  height: 170px;
+  background: var(--bg-2);
+  position: relative;
+  overflow: hidden;
+}
+.service-card__top::before {
+  content: "";
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--grad-pink);
+  z-index: 2;
+}
+.service-card__top img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .92;
+  transition: transform .5s ease;
+}
+.service-card:hover .service-card__top img { transform: scale(1.04); }
+.service-card__top::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(14,14,30,.15) 0%, rgba(14,14,30,0) 40%, rgba(21,21,43,.88) 100%);
+}
+
+/* --- Case cards: 写真ヘッダー --- */
+.case-card { padding: 0; overflow: hidden; }
+.case-card__photo {
+  height: 176px;
+  overflow: hidden;
+  position: relative;
+}
+.case-card__photo img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: .92;
+}
+.case-card__photo::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(21,21,43,0) 55%, rgba(21,21,43,.94) 100%);
+}
+.case-card__body { padding: 24px 32px 34px; }
+
+/* --- Photo band --- */
+.photo-band {
+  position: relative;
+  padding: 0;
+  height: clamp(280px, 34vw, 430px);
+  overflow: hidden;
+  isolation: isolate;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+.photo-band > img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
+.photo-band::after {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, rgba(7,7,15,.85) 0%, rgba(7,7,15,.45) 50%, rgba(7,7,15,.6) 100%);
+}
+.photo-band__inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+.photo-band__inner p {
+  font-size: clamp(20px, 2.6vw, 30px);
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: .02em;
+  text-shadow: 0 2px 24px rgba(0,0,0,.55);
+}
+
+/* --- Final CTA: 写真背景＋ピンクオーバーレイ --- */
+.final-cta__bg {
+  position: absolute; inset: 0;
+  z-index: -3;
+}
+.final-cta__bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+.final-cta::before {
+  background: linear-gradient(135deg, rgba(231,47,194,.72) 0%, rgba(177,43,224,.66) 50%, rgba(107,33,168,.78) 100%);
+}
+
+/* --- Hero: 実写に合わせて明るさ調整 --- */
+.hero__bg img { opacity: 0.78; }
+
+/* スマホ: 9:16の縦構図版(hero-mobile.jpg)をpictureで出し分け、PCと同じ背景方式。
+   21:9をそのまま使うと中央2割しか見えないため縦構図を別生成した。 */
+.hero__bg picture { display: contents; }
+
+@media (max-width: 768px) {
+  .hero__bg img { opacity: .72; object-position: center 20%; }
+}
+
+@media (max-width: 768px) {
+  .pain-card__photo { height: 170px; }
+  .service-card__top { height: 150px; }
+  .case-card__photo { height: 150px; }
+  .case-card__body { padding: 22px 24px 30px; }
 }
