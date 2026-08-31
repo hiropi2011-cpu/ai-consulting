@@ -413,7 +413,7 @@
           </div>
           <div class="case-card__result">
             <dt>Result</dt>
-            <dd>社内利用率 90%超／問い合わせ対応工数 約40%削減</dd>
+            <dd>社内利用率 <span class="count" data-count="90">90</span>%超／問い合わせ対応工数 約<span class="count" data-count="40">40</span>%削減</dd>
           </div>
         </dl>
         </div>
@@ -457,7 +457,7 @@
           </div>
           <div class="case-card__result">
             <dt>Result</dt>
-            <dd>教員一人あたり週 約5時間の業務時間削減</dd>
+            <dd>教員一人あたり週 約<span class="count" data-count="5">5</span>時間の業務時間削減</dd>
           </div>
         </dl>
         </div>
@@ -680,6 +680,92 @@
       }
     });
   });
+
+  // ===== Motion (2026-08 松プラン) =====
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // スクロール・リビール（カードは時間差で登場）
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    ['.painpoints__grid', '.strengths__grid', '.services__grid', '.process__grid', '.cases__grid', '.voices__grid', '.faq__list']
+      .forEach(sel => {
+        document.querySelectorAll(sel).forEach(grid => {
+          Array.from(grid.children).forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.setProperty('--rd', (i % 6) * 90 + 'ms');
+          });
+        });
+      });
+    document.querySelectorAll('.section-center, .painpoints__closing, .photo-band__inner, .cases__note, .pricing-table, .final-cta h2, .final-cta p, .final-cta__ctas')
+      .forEach(el => el.classList.add('reveal'));
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+        // 登場完了後は素の状態に戻す（カードのホバー挙動を保つため）
+        setTimeout(() => {
+          e.target.classList.remove('reveal', 'in');
+          e.target.style.removeProperty('--rd');
+        }, 1200);
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  // 実績数字カウントアップ
+  const counters = document.querySelectorAll('.count');
+  if (counters.length && !reducedMotion && 'IntersectionObserver' in window) {
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        const target = Number(e.target.dataset.count);
+        const dur = 1100, t0 = performance.now();
+        const tick = now => {
+          const p = Math.min((now - t0) / dur, 1);
+          const eased = 1 - Math.pow(1 - p, 3);
+          e.target.textContent = Math.round(target * eased);
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    counters.forEach(c => cio.observe(c));
+  }
+
+  // FAQ: 開くときに中身がふわっと出る
+  if (!reducedMotion) {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        const body = item.querySelector('.faq-item__body');
+        if (body && body.animate) {
+          body.animate(
+            [{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 260, easing: 'ease-out' }
+          );
+        }
+      });
+    });
+  }
+
+  // 写真バンド パララックス
+  const bandImg = document.querySelector('.photo-band > img');
+  if (bandImg && !reducedMotion) {
+    let ticking = false;
+    const updateParallax = () => {
+      ticking = false;
+      const r = bandImg.parentElement.getBoundingClientRect();
+      if (r.bottom < 0 || r.top > window.innerHeight) return;
+      const p = (r.top + r.height / 2 - window.innerHeight / 2) / window.innerHeight;
+      bandImg.style.transform = 'translateY(' + (-p * 44).toFixed(1) + 'px) scale(1.14)';
+    };
+    window.addEventListener('scroll', () => {
+      if (!ticking) { ticking = true; requestAnimationFrame(updateParallax); }
+    }, { passive: true });
+    updateParallax();
+  }
 </script>
 
 </body>
