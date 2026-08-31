@@ -1923,3 +1923,43 @@ main { padding-top: 68px; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .photo-band > img { transform: none; will-change: auto; }
 }
+
+/* ============================================================
+   サービスカード「詳しく見る」ボタン化 (2026-08-31 / CBMサイトと同方式)
+   テキストリンク → ピル型ボタン。ホバーで塗りつぶし反転
+   ============================================================ */
+.service-card__menu { margin-bottom: 24px; }
+.service-card__link {
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: auto;                /* 5枚のカードでボタン位置を下端に揃える */
+  padding: 12px 24px;
+  border: 1.5px solid var(--pink);
+  border-radius: 999px;
+  background: rgba(231, 47, 194, .06);
+  color: var(--pink-light);
+  font-size: 14px;
+  line-height: 1;
+  letter-spacing: .02em;
+  white-space: nowrap;
+  transition: background .25s ease, color .25s ease, border-color .25s ease,
+              box-shadow .25s ease, transform .2s ease, gap .2s ease;
+}
+.service-card__link span { transition: transform .25s ease; }
+.service-card__link:hover {
+  gap: 12px;
+  background: var(--grad-cta);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 8px 24px rgba(231, 47, 194, .35);
+}
+.service-card__link:hover span { transform: translateX(2px); }
+.service-card__link:active { transform: translateY(1px); }
+.service-card__link:focus-visible {
+  outline: 3px solid rgba(231, 47, 194, .4);
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  /* スマホは押しやすい全幅ボタンに */
+  .service-card__link { align-self: stretch; width: 100%; padding: 14px 18px; }
+}
