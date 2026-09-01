@@ -47,6 +47,8 @@
       <source media="(max-width: 768px)" srcset="images/photos/hero-mobile.jpg">
       <img src="images/photos/hero.jpg" alt="" loading="eager">
     </picture>
+    <video id="heroStory" class="hero__video" data-src="media/hero-story.mp4" muted playsinline preload="none" aria-hidden="true"></video>
+    <video id="heroLoop" class="hero__video" data-src="media/hero-loop.mp4" muted playsinline loop preload="none" aria-hidden="true"></video>
   </div>
   <div class="container">
     <div class="hero__content">
@@ -748,6 +750,28 @@
         }
       });
     });
+  }
+
+  // ヒーロー動画: ストーリーを1回再生 → ループ動画へクロスフェード
+  // (PC・モーション許可時のみ。スマホ/reduced-motionは静止画のまま＝通信量ゼロ)
+  const heroStory = document.getElementById('heroStory');
+  const heroLoop = document.getElementById('heroLoop');
+  if (heroStory && heroLoop && !reducedMotion
+      && window.matchMedia('(min-width: 769px)').matches
+      && !(navigator.connection && navigator.connection.saveData)) {
+    heroStory.src = heroStory.dataset.src;
+    heroLoop.src = heroLoop.dataset.src;
+    heroLoop.load();
+    const startLoop = () => {
+      heroLoop.play().then(() => {
+        heroLoop.classList.add('on');
+        heroStory.classList.remove('on');
+      }).catch(() => {});
+    };
+    heroStory.play().then(() => {
+      heroStory.classList.add('on');
+      heroStory.addEventListener('ended', startLoop);
+    }).catch(() => { /* 自動再生不可なら静止画のまま */ });
   }
 
   // 写真バンド パララックス
