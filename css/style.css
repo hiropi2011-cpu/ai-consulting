@@ -2038,3 +2038,17 @@ main { padding-top: 68px; }
    ============================================================ */
 .hero__bg img { transition: opacity .8s ease; }
 .hero__bg.video-on img { opacity: 0; }
+
+/* ============================================================
+   スマホのヒーロー圧縮 (2026-09-01 CEO指摘)
+   実機ではバッジ3つ目「導入後の定着まで伴走」がファーストビュー外に
+   落ちていたため、縦の余白を詰めて全体を引き上げる
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero { padding: 40px 0 52px; }
+  .hero__eyebrow { margin-bottom: 18px; }
+  .hero__title { margin-bottom: 20px; }
+  .hero__sub { margin-bottom: 28px; }
+  .hero__ctas { margin-bottom: 34px; }
+  .hero__badges { padding-top: 20px; gap: 10px; }
+}
