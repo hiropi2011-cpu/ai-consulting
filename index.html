@@ -48,7 +48,7 @@
       <img src="images/photos/hero.jpg" alt="" loading="eager">
     </picture>
     <video id="heroStory" class="hero__video" data-src="media/hero-story.mp4" muted playsinline preload="none" aria-hidden="true"></video>
-    <video id="heroLoop" class="hero__video" data-src="media/hero-loop.mp4" muted playsinline loop preload="none" aria-hidden="true"></video>
+    <video id="heroLoop" class="hero__video" data-src="media/hero-loop.mp4" data-src-mobile="media/hero-loop-mobile.mp4" muted playsinline loop preload="none" aria-hidden="true"></video>
   </div>
   <div class="container">
     <div class="hero__content">
@@ -757,23 +757,33 @@
   const heroStory = document.getElementById('heroStory');
   const heroLoop = document.getElementById('heroLoop');
   if (heroStory && heroLoop && !reducedMotion
-      && window.matchMedia('(min-width: 769px)').matches
       && !(navigator.connection && navigator.connection.saveData)) {
-    heroStory.src = heroStory.dataset.src;
-    heroLoop.src = heroLoop.dataset.src;
-    heroLoop.load();
-    const startLoop = () => {
+    const heroBg = heroLoop.closest('.hero__bg');
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      // スマホ: 縦型ループのみ再生(ストーリーは読み込まない)
+      heroLoop.src = heroLoop.dataset.srcMobile;
       heroLoop.play().then(() => {
         heroLoop.classList.add('on');
-        heroStory.classList.remove('on');
-      }).catch(() => {});
-    };
-    heroStory.play().then(() => {
-      heroStory.classList.add('on');
-      // 残像対策: 動画が出ている間は下の静止画を消す
-      heroStory.closest('.hero__bg').classList.add('video-on');
-      heroStory.addEventListener('ended', startLoop);
-    }).catch(() => { /* 自動再生不可なら静止画のまま */ });
+        heroBg.classList.add('video-on');
+      }).catch(() => { /* 自動再生不可なら静止画のまま */ });
+    } else {
+      // PC: ストーリー1回再生 → ループへクロスフェード
+      heroStory.src = heroStory.dataset.src;
+      heroLoop.src = heroLoop.dataset.src;
+      heroLoop.load();
+      const startLoop = () => {
+        heroLoop.play().then(() => {
+          heroLoop.classList.add('on');
+          heroStory.classList.remove('on');
+        }).catch(() => {});
+      };
+      heroStory.play().then(() => {
+        heroStory.classList.add('on');
+        // 残像対策: 動画が出ている間は下の静止画を消す
+        heroBg.classList.add('video-on');
+        heroStory.addEventListener('ended', startLoop);
+      }).catch(() => { /* 自動再生不可なら静止画のまま */ });
+    }
   }
 
   // 写真バンド パララックス

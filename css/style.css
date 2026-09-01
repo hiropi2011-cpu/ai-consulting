@@ -2023,8 +2023,9 @@ main { padding-top: 68px; }
   pointer-events: none;
 }
 .hero__video.on { opacity: .78; }
+/* スマホは縦型ループ動画(hero-loop-mobile.mp4)をJSで出し分け */
 @media (max-width: 768px) {
-  .hero__video { display: none; }
+  .hero__video { object-position: center 20%; }
 }
 @media (prefers-reduced-motion: reduce) {
   .hero__video { display: none; }
