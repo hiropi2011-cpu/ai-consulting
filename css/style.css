@@ -2052,3 +2052,18 @@ main { padding-top: 68px; }
   .hero__ctas { margin-bottom: 34px; }
   .hero__badges { padding-top: 20px; gap: 10px; }
 }
+
+/* ============================================================
+   写真バンドの「"導入して終わり"」をピンクに (2026-09-01 CEO指示)
+   他のアクセント文字と同じグラデ文字。非対応ブラウザは実ピンク
+   ============================================================ */
+.photo-band__inner p .accent {
+  color: #FF5DD8;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  display: inline-block;
+}
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .photo-band__inner p .accent { -webkit-text-fill-color: transparent; }
+}
