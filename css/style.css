@@ -2067,3 +2067,28 @@ main { padding-top: 68px; }
 @supports ((-webkit-background-clip: text) or (background-clip: text)) {
   .photo-band__inner p .accent { -webkit-text-fill-color: transparent; }
 }
+
+/* ============================================================
+   スマホのヒーロー整理 (2026-09-01 CEO指示)
+   並び順を「タイトル→(顔が見える余白)→CTA横1列→説明文→バッジ」に変更。
+   ロボットと女性の顔が見えるスペースを中央に確保する
+   ============================================================ */
+@media (max-width: 768px) {
+  .hero__content { display: flex; flex-direction: column; }
+  .hero__eyebrow { order: 0; align-self: center; }
+  .hero__title   { order: 1; margin-bottom: 0; }
+  .hero__ctas    { order: 2; margin-top: 175px; margin-bottom: 0; }
+  .hero__sub     { order: 3; margin: 24px auto 0; }
+  .hero__badges  { order: 4; margin-top: 26px; padding-top: 18px; }
+
+  /* CTAは幅を縮めて横1列に */
+  .hero__ctas { flex-direction: row; flex-wrap: nowrap; gap: 10px; justify-content: center; }
+  .hero__ctas .btn {
+    width: auto;
+    flex: 1;
+    max-width: 220px;
+    padding: 13px 8px;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+}
