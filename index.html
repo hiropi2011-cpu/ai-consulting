@@ -770,6 +770,8 @@
     };
     heroStory.play().then(() => {
       heroStory.classList.add('on');
+      // 残像対策: 動画が出ている間は下の静止画を消す
+      heroStory.closest('.hero__bg').classList.add('video-on');
       heroStory.addEventListener('ended', startLoop);
     }).catch(() => { /* 自動再生不可なら静止画のまま */ });
   }

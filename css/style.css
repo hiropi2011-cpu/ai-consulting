@@ -2029,3 +2029,11 @@ main { padding-top: 68px; }
 @media (prefers-reduced-motion: reduce) {
   .hero__video { display: none; }
 }
+
+/* ============================================================
+   残像対策 (2026-09-01)
+   動画は透過78%で重ねるため、下の静止画(着席構図)が22%透けて
+   「残像」に見えていた。動画再生中は静止画を完全に消す
+   ============================================================ */
+.hero__bg img { transition: opacity .8s ease; }
+.hero__bg.video-on img { opacity: 0; }
