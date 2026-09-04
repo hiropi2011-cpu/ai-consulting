@@ -778,21 +778,40 @@
     // (スマホは9:16縦型版の動画を使用)
     const heroBg = heroLoop.closest('.hero__bg');
     const heroMobile = window.matchMedia('(max-width: 768px)').matches;
+    // Safari対策: muted属性が効かない環境があるためプロパティでも明示する
+    heroStory.muted = true; heroLoop.muted = true;
+    heroStory.playsInline = true; heroLoop.playsInline = true;
     heroStory.src = heroMobile ? heroStory.dataset.srcMobile : heroStory.dataset.src;
     heroLoop.src = heroMobile ? heroLoop.dataset.srcMobile : heroLoop.dataset.src;
     heroLoop.load();
     const startLoop = () => {
       heroLoop.play().then(() => {
         heroLoop.classList.add('on');
+        heroBg.classList.add('video-on');
         heroStory.classList.remove('on');
       }).catch(() => {});
     };
-    heroStory.play().then(() => {
+    // ストーリーが再生完了/再生不能になったらループへ
+    heroStory.addEventListener('ended', startLoop);
+    heroStory.addEventListener('error', startLoop);
+    const tryPlayStory = () => heroStory.play().then(() => {
       heroStory.classList.add('on');
       // 残像対策: 動画が出ている間は下の静止画を消す
       heroBg.classList.add('video-on');
-      heroStory.addEventListener('ended', startLoop);
-    }).catch(() => { /* 自動再生不可なら静止画のまま */ });
+    });
+    tryPlayStory().catch(() => {
+      // 自動再生がブロックされたら、最初の操作(タップ/クリック/スクロール)で再挑戦。
+      // それでも不可ならループ動画だけでも試す
+      const retry = () => {
+        window.removeEventListener('pointerdown', retry);
+        window.removeEventListener('touchstart', retry);
+        window.removeEventListener('scroll', retry);
+        tryPlayStory().catch(startLoop);
+      };
+      window.addEventListener('pointerdown', retry);
+      window.addEventListener('touchstart', retry);
+      window.addEventListener('scroll', retry, { passive: true });
+    });
   }
 
   // 写真バンド パララックス
