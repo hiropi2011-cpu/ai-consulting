@@ -1448,3 +1448,37 @@ html {
   .lp-dogfood { height: auto; padding: 64px 0; }
   .lp-dogfood::after { background: linear-gradient(180deg, rgba(7,7,15,.86) 0%, rgba(7,7,15,.78) 100%); }
 }
+
+/* ============================================================
+   LPヒーロー：スマホ配列を公式サイトに合わせる (2026-09-07)
+   並び順 = ラベル → 見出し →（AIロボットと女性の顔が見える余白）
+            → CTA横1列 → 4行のリード文 → バッジ
+   ※スマホのみ。PCの見え方は変更しない
+   ============================================================ */
+@media (max-width: 768px) {
+  .lp-hero { padding: 40px 0 52px; }
+
+  .lp-hero__inner { display: flex; flex-direction: column; }
+  .lp-hero__inner .lp-hero__label { order: 0; align-self: center; margin-bottom: 18px; }
+  .lp-hero__inner h1              { order: 1; margin-bottom: 0; }
+  .lp-hero__inner .lp-hero__ctas  { order: 2; margin-top: 175px; margin-bottom: 0; }
+  .lp-hero__inner .lp-hero__lead  { order: 3; margin: 24px auto 0; }
+  .lp-hero__inner .lp-hero__badges{ order: 4; margin-top: 26px; padding-top: 18px; gap: 10px; }
+
+  /* CTAは幅を縮めて横1列に */
+  .lp-hero__inner .lp-hero__ctas {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: stretch;
+  }
+  .lp-hero__inner .lp-hero__ctas .btn {
+    width: auto;
+    flex: 1;
+    max-width: 220px;
+    padding: 13px 8px;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+}
