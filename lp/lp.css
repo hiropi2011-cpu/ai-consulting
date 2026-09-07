@@ -1566,3 +1566,46 @@ html {
   .lp-secbg { opacity: .30; }
   .lp-seminar__catch { margin-bottom: 14px; }
 }
+
+/* ============================================================
+   背景の明度をドッグフーディング帯に統一 (2026-09-07 CEO指摘 第2版)
+   ・追加した5枚は「明るいオフィス写真」なので、そのまま出すと文字が読めない。
+     写真側を暗く落としてから覆いを薄くし、帯と同じ“見え方”に揃える
+   ・スマホは縦長すぎて中央だけ拡大表示されていたので、上部の帯として見せる
+   ============================================================ */
+
+/* ---------- PC: 帯と同じ見え方に ---------- */
+.lp-secbg { opacity: 1; }
+.lp-secbg img {
+  filter: brightness(.46) saturate(.92) contrast(1.04);
+}
+.lp-secbg::after {
+  background: linear-gradient(180deg,
+    var(--secbg-edge, var(--bg-0)) 0%,
+    rgba(7,7,15,.34) 22%,
+    rgba(7,7,15,.34) 78%,
+    var(--secbg-edge, var(--bg-0)) 100%);
+}
+
+/* ---------- スマホ: 上部の帯として見せて、全体像が分かるように ---------- */
+@media (max-width: 768px) {
+  .lp-secbg { opacity: 1; }
+  .lp-secbg img {
+    height: 34%;
+    min-height: 200px;
+    max-height: 320px;
+    object-position: center 40%;
+    filter: brightness(.52) saturate(.92);
+  }
+  .lp-secbg::after {
+    background: linear-gradient(180deg,
+      rgba(7,7,15,.30) 0%,
+      rgba(7,7,15,.34) 55%,
+      var(--secbg-edge, var(--bg-0)) 92%,
+      var(--secbg-edge, var(--bg-0)) 100%);
+  }
+
+  /* 既存の背景（課題／導入の流れ）も同じ考え方でズームを抑える */
+  .lp-pain__bg img,
+  .lp-process__bg img { object-position: center 42%; }
+}
