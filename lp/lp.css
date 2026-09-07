@@ -1609,3 +1609,33 @@ html {
   .lp-pain__bg img,
   .lp-process__bg img { object-position: center 42%; }
 }
+
+/* ============================================================
+   スマホ: 21:9背景（課題／導入の流れ）も帯表示に (2026-09-07 CEO指摘 第4版)
+   21:9はとくに横長なので、縦長画面にcoverで敷くと横の8割がカットされ
+   中央の1人しか写らない。帯の高さを ~200px に抑えると横の8割以上が見える
+   （390px幅で全体を出すには 390÷(21/9) ≒ 167px が目安）
+   ============================================================ */
+@media (max-width: 768px) {
+  .lp-pain__bg img,
+  .lp-process__bg img {
+    height: 22%;
+    min-height: 175px;
+    max-height: 210px;
+    object-position: center 46%;
+  }
+  .lp-pain__bg::after {
+    background: linear-gradient(180deg,
+      rgba(7,7,15,.26) 0%,
+      rgba(7,7,15,.30) 58%,
+      var(--bg-1) 94%,
+      var(--bg-1) 100%);
+  }
+  .lp-process__bg::after {
+    background: linear-gradient(180deg,
+      rgba(7,7,15,.28) 0%,
+      rgba(7,7,15,.32) 58%,
+      var(--bg-1) 94%,
+      var(--bg-1) 100%);
+  }
+}
