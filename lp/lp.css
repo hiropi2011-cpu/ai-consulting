@@ -1482,3 +1482,87 @@ html {
     letter-spacing: 0;
   }
 }
+
+/* ============================================================
+   背景写真の明るさ調整 ＋ セクション背景の追加 (2026-09-07 CEO指摘)
+   ・既存の背景（課題／導入の流れ／ドッグフーディング帯）が暗すぎたので明るく
+   ・写真のなかったセクションに、明るい背景を5枚追加
+   ============================================================ */
+
+/* ---------- 既存の背景を明るく ---------- */
+.lp-pain__bg { opacity: .80; }
+.lp-pain__bg img { filter: brightness(1.55) saturate(1.05); }
+.lp-pain__bg::after {
+  background: linear-gradient(180deg,
+    var(--bg-1) 0%,
+    rgba(7,7,15,.32) 36%,
+    rgba(7,7,15,.32) 64%,
+    var(--bg-1) 100%);
+}
+
+.lp-process__bg { opacity: .76; }
+.lp-process__bg img { filter: brightness(1.5) saturate(1.05); }
+.lp-process__bg::after {
+  background: linear-gradient(180deg,
+    var(--bg-1) 0%,
+    rgba(7,7,15,.36) 38%,
+    rgba(7,7,15,.36) 62%,
+    var(--bg-1) 100%);
+}
+
+.lp-dogfood > img { filter: brightness(1.18); }
+.lp-dogfood::after {
+  background: linear-gradient(90deg, rgba(7,7,15,.90) 0%, rgba(7,7,15,.60) 52%, rgba(7,7,15,.32) 100%);
+}
+
+/* ---------- セクション背景（共通パーツ） ---------- */
+.lp-concept,
+.lp-value,
+.lp-merit,
+.lp-subsidy,
+.lp-support {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.lp-secbg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  opacity: .38;
+}
+.lp-secbg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(1.08);
+}
+.lp-secbg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg,
+    var(--secbg-edge, var(--bg-0)) 0%,
+    rgba(7,7,15,.66) 30%,
+    rgba(7,7,15,.66) 70%,
+    var(--secbg-edge, var(--bg-0)) 100%);
+}
+/* 背景色が --bg-1 のセクションは、フェード先もそろえる */
+.lp-value .lp-secbg,
+.lp-subsidy .lp-secbg { --secbg-edge: var(--bg-1); }
+
+/* ---------- 実践セミナー：見出し直下のキャッチ ---------- */
+.lp-seminar__catch {
+  margin: -4px 0 16px;
+  font-size: clamp(17px, 2.1vw, 25px);
+  font-weight: 800;
+  line-height: 1.6;
+  color: var(--text);
+  letter-spacing: .01em;
+}
+
+@media (max-width: 768px) {
+  .lp-secbg { opacity: .30; }
+  .lp-seminar__catch { margin-bottom: 14px; }
+}
