@@ -2077,8 +2077,8 @@ main { padding-top: 68px; }
   .hero__content { display: flex; flex-direction: column; }
   .hero__eyebrow { order: 0; align-self: center; }
   .hero__title   { order: 1; margin-bottom: 0; }
-  .hero__ctas    { order: 2; margin-top: 175px; margin-bottom: 0; }
-  .hero__sub     { order: 3; margin: 24px auto 0; }
+  .hero__ctas    { order: 3; margin-top: 24px; margin-bottom: 0; }
+  .hero__sub     { order: 2; margin: 175px auto 0; }
   .hero__badges  { order: 4; margin-top: 26px; padding-top: 18px; }
 
   /* CTAは幅を縮めて横1列に */

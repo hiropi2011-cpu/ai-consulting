@@ -1461,8 +1461,8 @@ html {
   .lp-hero__inner { display: flex; flex-direction: column; }
   .lp-hero__inner .lp-hero__label { order: 0; align-self: center; margin-bottom: 18px; }
   .lp-hero__inner h1              { order: 1; margin-bottom: 0; }
-  .lp-hero__inner .lp-hero__ctas  { order: 2; margin-top: 175px; margin-bottom: 0; }
-  .lp-hero__inner .lp-hero__lead  { order: 3; margin: 24px auto 0; }
+  .lp-hero__inner .lp-hero__ctas  { order: 3; margin-top: 24px; margin-bottom: 0; }
+  .lp-hero__inner .lp-hero__lead  { order: 2; margin: 175px auto 0; }
   .lp-hero__inner .lp-hero__badges{ order: 4; margin-top: 26px; padding-top: 18px; gap: 10px; }
 
   /* CTAは幅を縮めて横1列に */
