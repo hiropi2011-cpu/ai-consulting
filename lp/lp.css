@@ -1697,3 +1697,13 @@ html {
   .lp-footer__corp { margin-bottom: 32px; padding: 22px 20px; }
   .lp-footer__corp-link { font-size: 15px; }
 }
+
+/* ---------- 会社概要（LP最下部・信頼づけ） ---------- */
+.lp-company {
+  padding: 100px 0;
+  background: var(--bg-1);
+  border-top: 1px solid var(--line-soft);
+}
+@media (max-width: 768px) {
+  .lp-company { padding: 72px 0; }
+}
