@@ -1639,3 +1639,7 @@ html {
       var(--bg-1) 100%);
   }
 }
+.lp-pain__desc strong {
+  color: var(--pink-light);
+  font-weight: 800;
+}
