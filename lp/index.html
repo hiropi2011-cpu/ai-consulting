@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>AIエージェントで、現場業務を“速く、止めない”。｜中小企業向けAI導入支援</title>
-<meta name="description" content="中小企業の現場に伴走するAI導入支援。AIエージェントで自動化・効率化・品質向上まで、実務レベルで一気通貫サポート。初回相談無料。">
+<meta name="description" content="ChatGPTは使っている。でも業務は変わっていない——その先へ。中小企業の現場に伴走するAI導入支援。まずは無料の実践セミナーで、御社の業務をその場でAIに任せてみてください。">
 <meta name="theme-color" content="#E72FC2">
 <meta property="og:title" content="AIエージェントで、現場業務を“速く、止めない”。">
-<meta property="og:description" content="中小企業の現場に伴走するAI導入支援。AIエージェントで自動化・効率化・品質向上まで。">
+<meta property="og:description" content="“聞く”AIから、“任せる”AIへ。中小企業専門のAI導入支援。まずは無料の実践セミナーから。">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="lp.css">
+<link rel="stylesheet" href="../css/style.css?v=20260907">
+<link rel="stylesheet" href="lp.css?v=20260907">
 </head>
 <body id="top">
 
@@ -26,11 +26,11 @@
     <nav class="site-nav" id="siteNav">
       <a href="#pain">課題</a>
       <a href="#concept">AIエージェント</a>
-      <a href="#value">3つの価値</a>
+      <a href="#seminar">実践セミナー</a>
+      <a href="#proof">実績</a>
       <a href="#subsidy">補助金</a>
-      <a href="#process">導入の流れ</a>
       <a href="#faq">FAQ</a>
-      <a href="../contact/consultation.html" class="btn-header">無料相談</a>
+      <a href="#seminar" class="btn-header">無料セミナー</a>
     </nav>
     <button class="menu-toggle" id="menuToggle" aria-label="メニュー"><span></span><span></span><span></span></button>
   </div>
@@ -40,35 +40,38 @@
 
 <!-- ============== HERO ============== -->
 <section class="lp-hero">
+  <div class="lp-hero__media" aria-hidden="true">
+    <picture>
+      <source media="(max-width: 768px)" srcset="../images/photos/hero-mobile.jpg">
+      <img src="../images/photos/hero.jpg" alt="" loading="eager">
+    </picture>
+    <video id="lpHeroStory" class="lp-hero__video" data-src="../media/hero-story.mp4?v=2" data-src-mobile="../media/hero-story-mobile.mp4?v=2" muted playsinline preload="none"></video>
+    <video id="lpHeroLoop" class="lp-hero__video" data-src="../media/hero-loop.mp4?v=2" data-src-mobile="../media/hero-loop-mobile.mp4?v=2" muted playsinline loop preload="none"></video>
+  </div>
   <div class="container">
-    <div class="lp-hero__grid">
-      <div class="lp-hero__text">
-        <span class="lp-hero__label">For Small &amp; Mid-Sized Business</span>
-        <h1>
-          AIエージェントで、<br>
-          現場業務を<span class="accent">“速く、止めない”</span>。
-        </h1>
-        <p class="lp-hero__lead">
-          自動化・効率化・品質向上まで、<br class="sp-only">中小企業の現場に伴走するAI導入支援。
-        </p>
-        <div class="lp-hero__ctas">
-          <a href="../contact/consultation.html" class="btn btn-primary">
-            無料相談を申し込む <span class="btn-arrow">→</span>
-          </a>
-          <a href="../contact/document-request.html" class="btn btn-secondary">
-            サービス資料を請求する
-          </a>
-        </div>
-        <ul class="lp-hero__badges">
-          <li>中立・独立系</li>
-          <li>中小企業の現場特化</li>
-          <li>伴走型サポート</li>
-        </ul>
+    <div class="lp-hero__inner">
+      <span class="lp-hero__label">For Small &amp; Mid-Sized Business</span>
+      <h1>
+        AIエージェントで、<br>
+        現場業務を<span class="accent">“速く、止めない”</span>。
+      </h1>
+      <p class="lp-hero__lead">
+        ChatGPTは使っている。でも、業務は変わっていない——。<br>
+        その先へ進むための、中小企業専門のAI導入支援です。
+      </p>
+      <div class="lp-hero__ctas">
+        <a href="#seminar" class="btn btn-primary">
+          まずは無料の実践セミナー <span class="btn-arrow">→</span>
+        </a>
+        <a href="../contact/consultation.html" class="btn btn-secondary">
+          無料相談を申し込む
+        </a>
       </div>
-      <div class="lp-hero__visual">
-        <img src="../images/lp/hero-agent.png" alt="" loading="eager">
-        <div class="lp-hero__glow"></div>
-      </div>
+      <ul class="lp-hero__badges">
+        <li>中立・独立系</li>
+        <li>中小企業の現場特化</li>
+        <li>伴走型サポート</li>
+      </ul>
     </div>
   </div>
 </section>
@@ -76,33 +79,38 @@
 <!-- ============== PAIN ============== -->
 <section class="lp-pain" id="pain">
   <div class="lp-pain__bg" aria-hidden="true">
-    <img src="../images/lp/pain-bg.png" alt="">
+    <img src="../images/lp/pain-zokujinka.jpg" alt="" loading="lazy">
   </div>
   <div class="container">
     <div class="section-center">
       <span class="section-eyebrow">Pain Points</span>
-      <h2 class="section-title">こんな現場課題、ありませんか？</h2>
+      <h2 class="section-title">その業務、<span class="accent">その人しか</span>分からない。</h2>
+      <p class="section-desc lp-pain__desc">
+        中小企業の現場に入って、私たちが最初に必ず突き当たるのがこれです。<br>
+        人手不足も、残業も、引き継ぎの不安も、たどると同じ一点につながっています。
+      </p>
     </div>
+
     <div class="lp-pain__grid">
       <div class="lp-pain__card">
         <span class="lp-pain__num">01</span>
-        <p>人手不足で、現場が回りきっていない</p>
+        <p>ベテランの頭の中にしかない手順が、共有されていない</p>
       </div>
       <div class="lp-pain__card">
         <span class="lp-pain__num">02</span>
-        <p>業務が属人化し、抜け漏れや引き継ぎに不安がある</p>
+        <p>同じ説明を、何度も繰り返している</p>
       </div>
       <div class="lp-pain__card">
         <span class="lp-pain__num">03</span>
-        <p>AIを使いたいが、何から始めればよいか分からない</p>
+        <p>担当者が休むと、その業務が止まってしまう</p>
       </div>
       <div class="lp-pain__card">
         <span class="lp-pain__num">04</span>
-        <p>大手向け事例ばかりで、自社に合う支援が見つからない</p>
+        <p>書類づくりに時間を取られ、本業が後回しになる</p>
       </div>
       <div class="lp-pain__card">
         <span class="lp-pain__num">05</span>
-        <p>過去に試したAIツールが、結局定着しなかった</p>
+        <p>AIを試してはみたが、結局は定着しなかった</p>
       </div>
       <div class="lp-pain__card lp-pain__card--accent">
         <p><strong>その悩み、</strong><br>AIエージェントで<br><span class="accent">解ける可能性</span>があります。</p>
@@ -114,56 +122,78 @@
 <!-- ============== CONCEPT ============== -->
 <section class="lp-concept" id="concept">
   <div class="container">
-    <div class="lp-concept__grid">
-      <div class="lp-concept__text">
-        <span class="section-eyebrow">What is AI Agent</span>
-        <h2 class="section-title">
-          AIエージェントは、<br>
-          <span class="accent">“ツール”ではなく“現場で動く戦力”</span>です。
-        </h2>
-        <p>
-          単発の便利機能ではなく、<strong>業務フローに入り込み、継続的に手を動かしてくれる存在</strong>。<br>
-          問い合わせ対応、書類作成、社内情報の検索、見積もりの下書きまで、<br>
-          経営者が口頭で指示するように、業務を任せられる新しい働き方です。
-        </p>
-        <ul class="lp-concept__list">
-          <li><span>◯</span>問い合わせ・メール対応の下書き</li>
-          <li><span>◯</span>書類作成・社内ナレッジ検索</li>
-          <li><span>◯</span>見積もり・提案書の初稿づくり</li>
-          <li><span>◯</span>業務マニュアルの自動更新</li>
+    <div class="section-center">
+      <span class="section-eyebrow">Chat AI → AI Agent</span>
+      <h2 class="section-title">“聞く”AIから、<span class="accent">“任せる”</span>AIへ。</h2>
+      <p class="section-desc">
+        セミナーでお会いする方の多くは、すでにAIを使っています。<br>
+        それでも業務が変わらないのは、AIが“調べもの相手”のままだからです。
+      </p>
+    </div>
+
+    <div class="lp-compare">
+      <div class="lp-compare__col">
+        <span class="lp-compare__label">いまお使いのチャットAI</span>
+        <ul class="lp-compare__list">
+          <li>聞くと、答えが返ってくる</li>
+          <li>毎回コピーして、貼り直す</li>
+          <li>使う人によって、出来が変わる</li>
+          <li>個人の効率化で終わってしまう</li>
         </ul>
-
-        <!-- 改善③: チャット形式モックUI -->
-        <div class="lp-chat-mock">
-          <div class="lp-chat-mock__bar">
-            <span class="lp-chat-mock__dot"></span>
-            <span class="lp-chat-mock__dot"></span>
-            <span class="lp-chat-mock__dot"></span>
-            <span class="lp-chat-mock__bar-label">AI Agent</span>
-          </div>
-          <div class="lp-chat-mock__body">
-            <div class="lp-chat-mock__msg lp-chat-mock__msg--user">
-              <span class="lp-chat-mock__avatar lp-chat-mock__avatar--user">担当</span>
-              <div class="lp-chat-mock__bubble lp-chat-mock__bubble--user">
-                今月の現場写真と工事記録から、竣工書類の下書きを作って
-              </div>
-            </div>
-            <div class="lp-chat-mock__msg lp-chat-mock__msg--ai">
-              <span class="lp-chat-mock__avatar lp-chat-mock__avatar--ai">AI</span>
-              <div class="lp-chat-mock__bubble lp-chat-mock__bubble--ai">
-                承知しました。写真12枚と記録ファイルを確認しました。<br>
-                竣工報告書の下書きを作成しています……（約30秒）<br>
-                <span class="lp-chat-mock__done">完成しました。確認・修正はこちらから →</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
       </div>
-      <div class="lp-concept__visual">
-        <img src="../images/lp/concept-diagram.png" alt="AIエージェントが業務全体を結ぶイメージ図">
+      <div class="lp-compare__arrow" aria-hidden="true">→</div>
+      <div class="lp-compare__col lp-compare__col--after">
+        <span class="lp-compare__label">私たちが入れるAIエージェント</span>
+        <ul class="lp-compare__list">
+          <li>任せると、仕上げて出してくる</li>
+          <li>御社のファイル・様式のまま完成する</li>
+          <li>手順ごと組み込むので、誰がやっても同じ品質</li>
+          <li>業務そのものが速くなる</li>
+        </ul>
       </div>
     </div>
+
+    <p class="lp-concept__caption">たとえば、こんなふうに任せます。</p>
+
+    <div class="lp-chat-mock">
+      <div class="lp-chat-mock__bar">
+        <span class="lp-chat-mock__dot"></span>
+        <span class="lp-chat-mock__dot"></span>
+        <span class="lp-chat-mock__dot"></span>
+        <span class="lp-chat-mock__bar-label">AI Agent</span>
+      </div>
+      <div class="lp-chat-mock__body">
+        <div class="lp-chat-mock__msg lp-chat-mock__msg--user">
+          <span class="lp-chat-mock__avatar lp-chat-mock__avatar--user">担当</span>
+          <div class="lp-chat-mock__bubble lp-chat-mock__bubble--user">
+            今月の現場写真と工事記録から、竣工書類の下書きを作って
+          </div>
+        </div>
+        <div class="lp-chat-mock__msg lp-chat-mock__msg--ai">
+          <span class="lp-chat-mock__avatar lp-chat-mock__avatar--ai">AI</span>
+          <div class="lp-chat-mock__bubble lp-chat-mock__bubble--ai">
+            承知しました。写真12枚と記録ファイルを確認しました。<br>
+            竣工報告書の下書きを作成しています……（約30秒）<br>
+            <span class="lp-chat-mock__done">完成しました。確認・修正はこちらから →</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== DOGFOODING ============== -->
+<section class="lp-dogfood">
+  <img src="../images/photos/band.jpg" alt="" loading="lazy">
+  <div class="container lp-dogfood__inner">
+    <span class="section-eyebrow">Our Own Proof</span>
+    <p class="lp-dogfood__lead">
+      この会社自体、<span class="accent">AIエージェントだけ</span>で動いています。
+    </p>
+    <p class="lp-dogfood__sub">
+      提案書も、この画面も、日々の実務も。社員を増やさずに会社を回している当事者として、
+      「本当に現場で使えるのか」を、机上ではなくお話しします。
+    </p>
   </div>
 </section>
 
@@ -238,6 +268,219 @@
   </div>
 </section>
 
+<!-- ============== SEMINAR ============== -->
+<section class="lp-seminar" id="seminar">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-eyebrow">Free Hands-on Seminar</span>
+      <h2 class="section-title">まず、<span class="accent">御社の業務で</span>試してみませんか。</h2>
+      <p class="section-desc">
+        資料を読むより、目の前で自社の書類ができあがるほうが早い。<br>
+        いま、いちばん多くご依頼いただいているのが、この2時間です。
+      </p>
+    </div>
+
+    <div class="lp-seminar__grid">
+      <div class="lp-seminar__photo">
+        <img src="../images/lp/seminar-main.jpg" alt="実践セミナーの様子" loading="lazy">
+      </div>
+
+      <div class="lp-seminar__body">
+        <ol class="lp-seminar__steps">
+          <li>
+            <span class="lp-seminar__step">事前</span>
+            <div>
+              <h3>“めんどくさい作業”を洗い出す</h3>
+              <p>かんたんなアンケートに答えていただくだけ。当日いちばん効く業務を、こちらで見極めておきます。</p>
+            </div>
+          </li>
+          <li>
+            <span class="lp-seminar__step">当日</span>
+            <div>
+              <h3>その場で、御社の業務をAIに任せる</h3>
+              <p>参加された方が口にした言葉から、報告書・手順書・メールの下書きが目の前で仕上がっていきます。</p>
+            </div>
+          </li>
+          <li>
+            <span class="lp-seminar__step">お渡し</span>
+            <div>
+              <h3>成果物と、再現するための手順書</h3>
+              <p>その日つくったものと、同じことを社内で再現するための手順書をお持ち帰りいただけます。</p>
+            </div>
+          </li>
+        </ol>
+
+        <dl class="lp-seminar__spec">
+          <div><dt>費用</dt><dd>無料</dd></div>
+          <div><dt>所要</dt><dd>約2時間</dd></div>
+          <div><dt>人数</dt><dd>1名〜全社員</dd></div>
+          <div><dt>会場</dt><dd>御社／オンライン</dd></div>
+        </dl>
+
+        <div class="lp-seminar__cta">
+          <a href="../contact/consultation.html?type=seminar" class="btn btn-primary">
+            無料実践セミナーを申し込む <span class="btn-arrow">→</span>
+          </a>
+          <p class="lp-seminar__note">※ 無理な勧誘はいたしません。セミナー後のご契約義務もありません。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============== PROOF ============== -->
+<section class="lp-proof" id="proof">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-eyebrow">Track Record</span>
+      <h2 class="section-title">現場で、すでに<span class="accent">動いています</span>。</h2>
+      <p class="section-desc">2026年、中小企業から教育機関まで。いま実際にお手伝いしている現場です。</p>
+    </div>
+
+    <div class="lp-proof__stats">
+      <div class="lp-proof__stat">
+        <p class="lp-proof__num"><span class="count" data-count="3">3</span><small>社</small></p>
+        <p class="lp-proof__statlabel">実践セミナーの実施</p>
+      </div>
+      <div class="lp-proof__stat">
+        <p class="lp-proof__num"><span class="count" data-count="85">85</span><small>%</small></p>
+        <p class="lp-proof__statlabel">事前アンケート回答率</p>
+      </div>
+      <div class="lp-proof__stat">
+        <p class="lp-proof__num"><span class="count" data-count="300">300</span><small>名規模</small></p>
+        <p class="lp-proof__statlabel">受託したAI習得コース</p>
+      </div>
+    </div>
+
+    <div class="lp-proof__grid">
+      <article class="lp-proof__card">
+        <div class="lp-proof__photo"><img src="../images/lp/proof-telecom.jpg" alt="" loading="lazy"></div>
+        <div class="lp-proof__body">
+          <span class="lp-proof__tag">通信ネットワーク設備会社／従業員約86名</span>
+          <h3>図面から見積へ。まず一業務をAI化</h3>
+          <p>全社員向けの実践セミナーを実施。現在は積算・見積業務のAI化と、補助金を使った導入設計を並行してご支援しています。</p>
+        </div>
+      </article>
+
+      <article class="lp-proof__card">
+        <div class="lp-proof__photo"><img src="../images/lp/proof-it.jpg" alt="" loading="lazy"></div>
+        <div class="lp-proof__body">
+          <span class="lp-proof__tag">ITインフラ企業／全社員20名</span>
+          <h3>全社員参加の2時間で、3点の成果物</h3>
+          <p>事前アンケートに85%が回答。当日その場で報告書・手順書などを作成し、再現手順書とともにお渡ししました。</p>
+        </div>
+      </article>
+
+      <article class="lp-proof__card">
+        <div class="lp-proof__photo"><img src="../images/lp/proof-healthcare.jpg" alt="" loading="lazy"></div>
+        <div class="lp-proof__body">
+          <span class="lp-proof__tag">ヘルスケア事業・通販グループ</span>
+          <h3>音声入力の全社導入から、事業化まで</h3>
+          <p>実践セミナーののち、音声入力ツールの導入をご支援。現在はグループ内でのAI導入支援事業の立ち上げにも並走しています。</p>
+        </div>
+      </article>
+
+      <article class="lp-proof__card">
+        <div class="lp-proof__photo"><img src="../images/lp/proof-education.jpg" alt="" loading="lazy"></div>
+        <div class="lp-proof__body">
+          <span class="lp-proof__tag">通信制高校／当初300名規模</span>
+          <h3>AI習得コースを、まるごと受託</h3>
+          <p>生徒向けAI習得コースの設計・運営を業務委託として受託。社員を増やさずに大規模な教育プログラムを回します。</p>
+        </div>
+      </article>
+    </div>
+
+    <p class="lp-proof__note">※ お客様の守秘のため、社名は伏せて掲載しています。</p>
+  </div>
+</section>
+
+<!-- ============== INDUSTRY BEFORE/AFTER (改善①) ============== -->
+<section class="lp-industry">
+  <div class="container">
+    <div class="section-center">
+      <span class="section-eyebrow">Industry Cases</span>
+      <h2 class="section-title">業種別に見る、<span class="accent">Before / After</span>。</h2>
+      <p class="section-desc">「うちの業種でも使えるのか？」という疑問に、具体的な変化でお答えします。</p>
+    </div>
+    <div class="lp-industry__grid">
+
+      <div class="lp-industry__card">
+        <span class="lp-industry__label">建設・工事業</span>
+        <h3 class="lp-industry__task">見積書の作成</h3>
+        <div class="lp-industry__compare">
+          <div class="lp-industry__before">
+            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
+            <p class="lp-industry__time"><span class="count" data-count="4">4</span>時間</p>
+            <p class="lp-industry__desc">現場記録を手元資料に転記しながら、担当者が手作業で積算・作成</p>
+          </div>
+          <div class="lp-industry__arrow" aria-hidden="true">→</div>
+          <div class="lp-industry__after">
+            <span class="lp-industry__tag lp-industry__tag--after">After</span>
+            <p class="lp-industry__time"><span class="accent"><span class="count" data-count="30">30</span>分</span></p>
+            <p class="lp-industry__desc">写真・記録をAIに渡すだけで下書きが完成。担当者は確認と仕上げに集中</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-industry__card">
+        <span class="lp-industry__label">士業事務所（税理士・社労士）</span>
+        <h3 class="lp-industry__task">顧客への定型メール作成</h3>
+        <div class="lp-industry__compare">
+          <div class="lp-industry__before">
+            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
+            <p class="lp-industry__time">1日10件で<br>約2〜3時間</p>
+            <p class="lp-industry__desc">案件ごとに文面を書き直し。繁忙期には翌日対応になることも</p>
+          </div>
+          <div class="lp-industry__arrow" aria-hidden="true">→</div>
+          <div class="lp-industry__after">
+            <span class="lp-industry__tag lp-industry__tag--after">After</span>
+            <p class="lp-industry__time"><span class="accent">10件を約<span class="count" data-count="5">5</span>分</span></p>
+            <p class="lp-industry__desc">案件情報を入力するとAIが下書きを一括生成。送信前に一文確認するだけ</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-industry__card">
+        <span class="lp-industry__label">卸売・商社</span>
+        <h3 class="lp-industry__task">問い合わせ対応の下書き</h3>
+        <div class="lp-industry__compare">
+          <div class="lp-industry__before">
+            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
+            <p class="lp-industry__time">1件あたり<span class="count" data-count="15">15</span>分</p>
+            <p class="lp-industry__desc">過去メールを探しながら文面を組み立て。担当者によって返答内容にばらつきも</p>
+          </div>
+          <div class="lp-industry__arrow" aria-hidden="true">→</div>
+          <div class="lp-industry__after">
+            <span class="lp-industry__tag lp-industry__tag--after">After</span>
+            <p class="lp-industry__time"><span class="accent">1件あたり<span class="count" data-count="2">2</span>分</span></p>
+            <p class="lp-industry__desc">ナレッジベースからAIが適切な回答文を提案。品質が均一化され、新人でも即戦力</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="lp-industry__card">
+        <span class="lp-industry__label">小売・サービス業</span>
+        <h3 class="lp-industry__task">シフト・勤怠のまとめ作業</h3>
+        <div class="lp-industry__compare">
+          <div class="lp-industry__before">
+            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
+            <p class="lp-industry__time">週<span class="count" data-count="2">2</span>時間</p>
+            <p class="lp-industry__desc">複数スタッフの希望シフトを手作業で集約し、Excelに転記・調整</p>
+          </div>
+          <div class="lp-industry__arrow" aria-hidden="true">→</div>
+          <div class="lp-industry__after">
+            <span class="lp-industry__tag lp-industry__tag--after">After</span>
+            <p class="lp-industry__time"><span class="accent">ほぼ自動化</span></p>
+            <p class="lp-industry__desc">スタッフの申請をAIが自動集計し、調整案を提示。管理者は最終確認のみ</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="lp-industry__note">※ 上記は類似業務における参考例です。実際の効果は業務環境・運用方法により異なります。</p>
+  </div>
+</section>
+
 <!-- ============== SUBSIDY ============== -->
 <section class="lp-subsidy" id="subsidy">
   <div class="container">
@@ -286,7 +529,7 @@
 <!-- ============== PROCESS ============== -->
 <section class="lp-process" id="process">
   <div class="lp-process__bg" aria-hidden="true">
-    <img src="../images/lp/process-bg.png" alt="">
+    <img src="../images/lp/process-bg.jpg" alt="">
   </div>
   <div class="container">
     <div class="section-center">
@@ -366,120 +609,6 @@
   </div>
 </section>
 
-<!-- ============== PROOF ============== -->
-<section class="lp-proof">
-  <div class="container">
-    <div class="section-center">
-      <span class="section-eyebrow">Proof</span>
-      <h2 class="section-title">小さくても、<span class="accent">確かな“動く実績”</span>。</h2>
-    </div>
-    <div class="lp-proof__grid">
-      <div class="lp-proof__card">
-        <span class="lp-proof__tag">Web &amp; Branding</span>
-        <h3>自社サイト・名刺をAI活用で1人・2日で制作</h3>
-        <p>構成・コピー・デザイン・実装・印刷入稿対応まで、内製化を実証。</p>
-      </div>
-      <div class="lp-proof__card">
-        <span class="lp-proof__tag">Education</span>
-        <h3>通信制高校向けAIソリューション導入支援</h3>
-        <p>教育現場特有の課題に対応した、AIチューター・研修導入の支援実績。</p>
-      </div>
-      <div class="lp-proof__card">
-        <span class="lp-proof__tag">Nationwide</span>
-        <h3>銀座拠点／全国オンライン対応</h3>
-        <p>地域を問わず、オンライン中心で迅速に伴走。必要に応じて訪問対応も。</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ============== INDUSTRY BEFORE/AFTER (改善①) ============== -->
-<section class="lp-industry">
-  <div class="container">
-    <div class="section-center">
-      <span class="section-eyebrow">Industry Cases</span>
-      <h2 class="section-title">業種別に見る、<span class="accent">Before / After</span>。</h2>
-      <p class="section-desc">「うちの業種でも使えるのか？」という疑問に、具体的な変化でお答えします。</p>
-    </div>
-    <div class="lp-industry__grid">
-
-      <div class="lp-industry__card">
-        <span class="lp-industry__label">建設・工事業</span>
-        <h3 class="lp-industry__task">見積書の作成</h3>
-        <div class="lp-industry__compare">
-          <div class="lp-industry__before">
-            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
-            <p class="lp-industry__time">4時間</p>
-            <p class="lp-industry__desc">現場記録を手元資料に転記しながら、担当者が手作業で積算・作成</p>
-          </div>
-          <div class="lp-industry__arrow" aria-hidden="true">→</div>
-          <div class="lp-industry__after">
-            <span class="lp-industry__tag lp-industry__tag--after">After</span>
-            <p class="lp-industry__time"><span class="accent">30分</span></p>
-            <p class="lp-industry__desc">写真・記録をAIに渡すだけで下書きが完成。担当者は確認と仕上げに集中</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lp-industry__card">
-        <span class="lp-industry__label">士業事務所（税理士・社労士）</span>
-        <h3 class="lp-industry__task">顧客への定型メール作成</h3>
-        <div class="lp-industry__compare">
-          <div class="lp-industry__before">
-            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
-            <p class="lp-industry__time">1日10件で<br>約2〜3時間</p>
-            <p class="lp-industry__desc">案件ごとに文面を書き直し。繁忙期には翌日対応になることも</p>
-          </div>
-          <div class="lp-industry__arrow" aria-hidden="true">→</div>
-          <div class="lp-industry__after">
-            <span class="lp-industry__tag lp-industry__tag--after">After</span>
-            <p class="lp-industry__time"><span class="accent">10件を約5分</span></p>
-            <p class="lp-industry__desc">案件情報を入力するとAIが下書きを一括生成。送信前に一文確認するだけ</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lp-industry__card">
-        <span class="lp-industry__label">卸売・商社</span>
-        <h3 class="lp-industry__task">問い合わせ対応の下書き</h3>
-        <div class="lp-industry__compare">
-          <div class="lp-industry__before">
-            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
-            <p class="lp-industry__time">1件あたり15分</p>
-            <p class="lp-industry__desc">過去メールを探しながら文面を組み立て。担当者によって返答内容にばらつきも</p>
-          </div>
-          <div class="lp-industry__arrow" aria-hidden="true">→</div>
-          <div class="lp-industry__after">
-            <span class="lp-industry__tag lp-industry__tag--after">After</span>
-            <p class="lp-industry__time"><span class="accent">1件あたり2分</span></p>
-            <p class="lp-industry__desc">ナレッジベースからAIが適切な回答文を提案。品質が均一化され、新人でも即戦力</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="lp-industry__card">
-        <span class="lp-industry__label">小売・サービス業</span>
-        <h3 class="lp-industry__task">シフト・勤怠のまとめ作業</h3>
-        <div class="lp-industry__compare">
-          <div class="lp-industry__before">
-            <span class="lp-industry__tag lp-industry__tag--before">Before</span>
-            <p class="lp-industry__time">週2時間</p>
-            <p class="lp-industry__desc">複数スタッフの希望シフトを手作業で集約し、Excelに転記・調整</p>
-          </div>
-          <div class="lp-industry__arrow" aria-hidden="true">→</div>
-          <div class="lp-industry__after">
-            <span class="lp-industry__tag lp-industry__tag--after">After</span>
-            <p class="lp-industry__time"><span class="accent">ほぼ自動化</span></p>
-            <p class="lp-industry__desc">スタッフの申請をAIが自動集計し、調整案を提示。管理者は最終確認のみ</p>
-          </div>
-        </div>
-      </div>
-
-    </div>
-    <p class="lp-industry__note">※ 上記は類似業務における参考例です。実際の効果は業務環境・運用方法により異なります。</p>
-  </div>
-</section>
-
 <!-- ============== FAQ ============== -->
 <section class="lp-faq faq" id="faq">
   <div class="container-narrow">
@@ -488,6 +617,14 @@
       <h2 class="section-title">よくあるご質問</h2>
     </div>
     <div class="faq__list">
+      <details class="faq-item">
+        <summary>実践セミナーは、本当に無料ですか？<span class="faq-item__icon"></span></summary>
+        <div class="faq-item__body">はい、費用はいただきません。その後のご契約義務もなく、無理な勧誘もいたしません。まず一度、AIが御社の業務で何をできるのかをご覧ください。</div>
+      </details>
+      <details class="faq-item">
+        <summary>セミナーには何人まで参加できますか？<span class="faq-item__icon"></span></summary>
+        <div class="faq-item__body">経営者おひとりから、全社員の皆さままで対応しています。実際に全社員20名でご参加いただいた例もあります。オンラインでの実施も可能です。</div>
+      </details>
       <details class="faq-item">
         <summary>AIに詳しくないのですが、大丈夫ですか？<span class="faq-item__icon"></span></summary>
         <div class="faq-item__body">もちろんです。これからAI活用を始める中小企業さまこそ、私たちの主なお客様です。専門用語を使わず、現場目線でご説明します。</div>
@@ -515,15 +652,15 @@
 <!-- ============== FINAL CTA ============== -->
 <section class="final-cta">
   <div class="container-narrow">
-    <h2>AI活用、まずは話してみませんか？</h2>
+    <h2>まず、2時間だけ<br class="sp-only">ください。</h2>
     <p>
       「うちでもAIを使えるのか？」<br>
-      その一言から、はじめましょう。<br><br>
-      <strong>初回相談・お見積りは無料です。</strong>
+      その答えは、御社の業務でやってみるのがいちばん早い。<br><br>
+      <strong>実践セミナー・初回相談・お見積りは、すべて無料です。</strong>
     </p>
     <div class="final-cta__ctas">
-      <a href="../contact/consultation.html" class="btn btn-primary">
-        無料相談を申し込む <span class="btn-arrow">→</span>
+      <a href="../contact/consultation.html?type=seminar" class="btn btn-primary">
+        無料実践セミナーを申し込む <span class="btn-arrow">→</span>
       </a>
       <a href="../contact/document-request.html" class="btn btn-secondary">
         サービス資料を請求する
@@ -590,6 +727,112 @@
       }
     });
   });
+
+  // ===== Motion（公式サイトと同じ設計を移植）=====
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ヒーロー動画：ストーリーを1回再生 → ループへクロスフェード
+  const lpStory = document.getElementById('lpHeroStory');
+  const lpLoop = document.getElementById('lpHeroLoop');
+  if (lpStory && lpLoop && !reducedMotion
+      && !(navigator.connection && navigator.connection.saveData)) {
+    const media = lpStory.closest('.lp-hero__media');
+    const isMobile = window.matchMedia('(max-width: 768px)').matches;
+    lpStory.muted = true; lpLoop.muted = true;
+    lpStory.playsInline = true; lpLoop.playsInline = true;
+    lpStory.src = isMobile ? lpStory.dataset.srcMobile : lpStory.dataset.src;
+    lpLoop.src  = isMobile ? lpLoop.dataset.srcMobile  : lpLoop.dataset.src;
+    lpLoop.load();
+    const startLoop = () => lpLoop.play().then(() => {
+      lpLoop.classList.add('on');
+      media.classList.add('video-on');
+      lpStory.classList.remove('on');
+    }).catch(() => {});
+    lpStory.addEventListener('ended', startLoop);
+    lpStory.addEventListener('error', startLoop);
+    const tryStory = () => lpStory.play().then(() => {
+      lpStory.classList.add('on');
+      media.classList.add('video-on');
+    });
+    tryStory().catch(() => {
+      const retry = () => {
+        window.removeEventListener('pointerdown', retry);
+        window.removeEventListener('touchstart', retry);
+        window.removeEventListener('scroll', retry);
+        tryStory().catch(startLoop);
+      };
+      window.addEventListener('pointerdown', retry);
+      window.addEventListener('touchstart', retry);
+      window.addEventListener('scroll', retry, { passive: true });
+    });
+  }
+
+  // スクロール・リビール（カードは時間差で登場）
+  if (!reducedMotion && 'IntersectionObserver' in window) {
+    ['.lp-pain__grid', '.lp-compare', '.lp-value__grid', '.lp-merit__grid',
+     '.lp-seminar__steps', '.lp-seminar__spec', '.lp-proof__stats', '.lp-proof__grid',
+     '.lp-industry__grid', '.lp-subsidy__grid', '.lp-process__steps', '.faq__list']
+      .forEach(sel => {
+        document.querySelectorAll(sel).forEach(grid => {
+          Array.from(grid.children).forEach((el, i) => {
+            el.classList.add('reveal');
+            el.style.setProperty('--rd', (i % 6) * 90 + 'ms');
+          });
+        });
+      });
+    document.querySelectorAll('.section-center, .lp-dogfood__inner, .lp-seminar__photo, .lp-seminar__cta, .lp-concept__caption, .lp-chat-mock, .lp-proof__note, .final-cta h2, .final-cta p, .final-cta__ctas')
+      .forEach(el => el.classList.add('reveal'));
+
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+        // 登場が終わったら素の状態へ戻す（ホバー挙動を保つため）
+        setTimeout(() => {
+          e.target.classList.remove('reveal', 'in');
+          e.target.style.removeProperty('--rd');
+        }, 1200);
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  }
+
+  // 数字のカウントアップ
+  const lpCounters = document.querySelectorAll('.count');
+  if (lpCounters.length && !reducedMotion && 'IntersectionObserver' in window) {
+    const cio = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        cio.unobserve(e.target);
+        const target = Number(e.target.dataset.count);
+        const dur = 1100, t0 = performance.now();
+        const tick = now => {
+          const p = Math.min((now - t0) / dur, 1);
+          e.target.textContent = Math.round(target * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+    }, { threshold: 0.6 });
+    lpCounters.forEach(c => cio.observe(c));
+  }
+
+  // FAQ：開くときに中身がふわっと出る
+  if (!reducedMotion) {
+    document.querySelectorAll('.faq-item').forEach(item => {
+      item.addEventListener('toggle', () => {
+        if (!item.open) return;
+        const body = item.querySelector('.faq-item__body');
+        if (body && body.animate) {
+          body.animate(
+            [{ opacity: 0, transform: 'translateY(-6px)' }, { opacity: 1, transform: 'none' }],
+            { duration: 260, easing: 'ease-out' }
+          );
+        }
+      });
+    });
+  }
 
   const backToTop = document.getElementById('backToTop');
   if (backToTop) {

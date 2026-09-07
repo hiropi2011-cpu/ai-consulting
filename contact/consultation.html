@@ -235,6 +235,38 @@
 </footer>
 
 <script>
+  // LPの「無料実践セミナー」ボタン経由（?type=seminar）のときは、
+  // 見出し・件名・プレースホルダーをセミナー用に切り替える
+  (function () {
+    var params = new URLSearchParams(location.search);
+    if (params.get('type') !== 'seminar') return;
+
+    var h1 = document.querySelector('.form-hero h1');
+    if (h1) h1.innerHTML = '<span class="accent">無料実践セミナー</span>を申し込む';
+
+    var lead = document.querySelector('.form-hero p');
+    if (lead) lead.innerHTML = '御社の業務をその場でAIに任せてみる、約2時間の実践セミナーです。'
+      + '<strong style="color: var(--pink-light);">費用は無料</strong>、その後のご契約義務もありません。<br>'
+      + '担当より2営業日以内にご連絡いたします。';
+
+    var crumb = document.querySelector('.form-hero__breadcrumb span:last-child');
+    if (crumb) crumb.textContent = '無料実践セミナーのお申し込み';
+
+    var label = document.querySelector('.form-hero__label');
+    if (label) label.textContent = 'Free Hands-on Seminar';
+
+    var subject = document.querySelector('input[name="_subject"]');
+    if (subject) subject.value = '【無料実践セミナー】新規お申し込み';
+
+    var formType = document.querySelector('input[name="form_type"]');
+    if (formType) formType.value = 'free_seminar';
+
+    var msg = document.getElementById('message');
+    if (msg) msg.placeholder = 'ご参加予定の人数、社内で気になっている“めんどくさい作業”などをご記入ください。';
+
+    if (document.title) document.title = document.title.replace('無料相談', '無料実践セミナー');
+  })();
+
   // Mobile menu
   const toggle = document.getElementById('menuToggle');
   const nav = document.getElementById('siteNav');
