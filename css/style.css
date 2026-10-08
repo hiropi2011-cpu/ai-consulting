@@ -2164,3 +2164,77 @@ main { padding-top: 68px; }
 @media (max-width: 768px) {
   .footer-sns__note { max-width: 320px; }
 }
+
+/* ===============================================
+   特定商取引法に基づく表記ページ（tokushoho/index.html 専用）— added 2026-10
+   既存の .pricing-table / .pricing-row を流用した「項目名｜内容」の定義表（<dl>）。
+   PC・タブレットは2列。768px以下は項目名を内容の上に積み、横はみ出しを防ぐ。
+   =============================================== */
+.legal-table .pricing-row {
+  grid-template-columns: 220px minmax(0, 1fr);
+  align-items: start;
+  gap: 20px;
+  padding: 22px 32px;
+}
+.legal-table .pricing-row__name,
+.legal-table dd { line-height: 1.9; }          /* 項目名と内容の1行目の高さをそろえる */
+.legal-table dd {
+  font-size: 15px;
+  overflow-wrap: anywhere;                      /* メールアドレス等が長くても横にはみ出さない */
+}
+.legal-nw { white-space: nowrap; }            /* H1を「特定商取引法に｜基づく表記」の区切りでのみ改行させる */
+.legal-back { margin-top: 48px; text-align: center; }
+@media (max-width: 768px) {
+  .legal-table .pricing-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 6px;
+    padding: 18px 22px;
+  }
+  .legal-table .pricing-row__name {
+    font-size: 13px;
+    letter-spacing: .08em;
+    color: var(--pink-light);
+  }
+  .legal-back { margin-top: 36px; }
+}
+
+/* ===============================================
+   FOOTER：noteの連載リンク／特商法の表記（2026-10-08）
+   =============================================== */
+.footer-sns .footer-serial {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 16px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-soft);
+}
+.footer-sns .footer-serial svg {
+  width: 15px;
+  height: 15px;
+  fill: currentColor;
+  flex-shrink: 0;
+}
+.footer-sns .footer-serial__nw { white-space: nowrap; }
+.footer-sns .footer-serial__arrow {
+  display: inline-block;
+  margin-left: 7px;
+  transition: transform .2s;
+}
+.footer-sns .footer-serial:hover,
+.footer-sns .footer-serial:focus-visible { color: var(--pink-light); }
+.footer-sns .footer-serial:hover .footer-serial__arrow { transform: translateX(3px); }
+
+.footer-info__legal {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+}
+.footer-info__legal a {
+  color: var(--text-mute);
+  transition: color .2s;
+}
+.footer-info__legal a:hover,
+.footer-info__legal a:focus-visible { color: var(--pink-light); }

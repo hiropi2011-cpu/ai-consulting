@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>動作診断｜AIコンサルティング株式会社</title>
+<style>
+  body { font-family: -apple-system, "Hiragino Sans", "Noto Sans JP", sans-serif; background: #0E0E1E; color: #F5F5FA; margin: 0; padding: 24px; line-height: 1.7; }
+  h1 { font-size: 20px; color: #FF5DD8; }
+  .item { padding: 14px 16px; margin: 10px 0; border-radius: 12px; background: #15152B; border: 1px solid rgba(255,255,255,.1); font-size: 15px; }
+  .ok { border-left: 6px solid #2ecc71; }
+  .ng { border-left: 6px solid #e74c3c; }
+  .label { font-weight: 700; }
+  .val { float: right; font-weight: 800; }
+  video { width: 100%; max-width: 400px; border-radius: 12px; margin-top: 12px; display: block; }
+  #summary { margin-top: 18px; padding: 16px; border-radius: 12px; background: #2a1030; border: 1px solid #E72FC2; font-weight: 700; }
+</style>
+</head>
+<body>
+<h1>ヒーロー動画 動作診断</h1>
+<div id="out">診断中…</div>
+<div id="summary"></div>
+<video id="testv" muted playsinline src="media/hero-loop.mp4?v=2"></video>
+<script>
+(async () => {
+  const out = document.getElementById('out');
+  const summary = document.getElementById('summary');
+  const rows = [];
+  const add = (label, val, good) => rows.push('<div class="item ' + (good ? 'ok' : 'ng') + '"><span class="label">' + label + '</span><span class="val">' + val + '</span></div>');
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  add('① 視差効果を減らす設定(OS)', reduced ? 'オン ← 動画が止まる原因' : 'オフ', !reduced);
+
+  const save = !!(navigator.connection && navigator.connection.saveData);
+  add('② データセーバー', save ? 'オン ← 動画が止まる原因' : 'オフ/非対応', !save);
+
+  const v = document.getElementById('testv');
+  const canPlay = v.canPlayType('video/mp4; codecs="avc1.42E01E"');
+  add('③ H.264動画の対応', canPlay || '非対応', !!canPlay);
+
+  let net = '取得失敗';
+  let netOk = false;
+  try {
+    const r = await fetch('media/hero-story.mp4?v=2', { headers: { 'Range': 'bytes=0-255' } });
+    net = 'HTTP ' + r.status;
+    netOk = (r.status === 206 || r.status === 200);
+  } catch (e) { net = 'エラー: ' + e.message; }
+  add('④ 動画ファイルの取得', net, netOk);
+
+  let play = '';
+  let playOk = false;
+  try {
+    v.muted = true;
+    await v.play();
+    play = '再生できました';
+    playOk = true;
+  } catch (e) { play = 'ブロック: ' + e.name; }
+  add('⑤ 自動再生テスト(下に動画が動いていれば成功)', play, playOk);
+
+  out.innerHTML = rows.join('');
+  summary.textContent = reduced
+    ? '原因判明: このMacは「視差効果を減らす」がオンです。システム設定 → アクセシビリティ → 動作 →「視差効果を減らす」をオフにすると、サイトの動画が動きます。'
+    : (playOk && netOk ? 'この環境では動画は正常に再生できます。トップページを再読み込みしてください。' : '上の赤い項目が原因候補です。この画面を撮影してヒロユキに送ってください。');
+})();
+</script>
+</body>
+</html>
