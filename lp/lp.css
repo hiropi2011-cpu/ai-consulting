@@ -1707,3 +1707,387 @@ html {
 @media (max-width: 768px) {
   .lp-company { padding: 72px 0; }
 }
+
+/* ===============================================
+   補助金セクション（2026-10-14 作り直し・B改）
+   見出しのフック → 支援事業者の札 → 迷いのパネル（主役） → 3つのルール
+   クラスは lp-hojo__ で独立（他のセクションのクラスを流用しない）
+   =============================================== */
+
+/* ---------- 語の途中で折り返さない部品 ---------- */
+.lp-hojo__nw { white-space: nowrap; }
+
+/* ---------- IT導入支援事業者の札 ---------- */
+.lp-hojo__badge {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  max-width: 760px;
+  margin: 34px auto 0;
+  padding: 16px 22px;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+}
+.lp-hojo__badge-mark {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--grad-pink);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 900;
+  line-height: 1.2;
+  text-align: center;
+  letter-spacing: .02em;
+}
+.lp-hojo__badge-text {
+  font-size: 13px;
+  line-height: 1.75;
+  color: var(--text-soft);
+}
+.lp-hojo__badge-text strong {
+  display: block;
+  margin-bottom: 2px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+
+/* ---------- 補助の対象／対象外の札 ---------- */
+.lp-hojo__tag {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+.lp-hojo__tag--off {
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid var(--line-soft);
+  color: var(--text-mute);
+}
+.lp-hojo__tag--on {
+  background: rgba(231, 47, 194, .16);
+  border: 1px solid var(--line);
+  color: var(--pink-light);
+}
+
+/* ---------- 迷いのパネル（主役） ---------- */
+.lp-hojo__dilemma-panel {
+  position: relative;
+  max-width: 980px;
+  margin: 56px auto 0;
+  padding: 46px 44px 40px;
+  text-align: center;
+  border: 1px solid rgba(231, 47, 194, .38);
+  border-radius: var(--radius-xl);
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(231, 47, 194, .18), transparent 70%),
+    linear-gradient(180deg, rgba(21, 21, 43, .92), rgba(14, 14, 30, .92));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, .45), 0 0 0 1px rgba(255, 255, 255, .03) inset;
+}
+.lp-hojo__dilemma-kicker {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(231, 47, 194, .10);
+  color: var(--pink-light);
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.lp-hojo__dilemma-q {
+  margin-top: 18px;
+  font-size: clamp(30px, 4.4vw, 46px);
+  font-weight: 900;
+  line-height: 1.35;
+  letter-spacing: .02em;
+  color: var(--text);
+}
+.lp-hojo__dilemma-q .accent {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lp-hojo__vs-wrap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: stretch;
+  gap: 14px;
+  margin-top: 30px;
+  text-align: left;
+}
+.lp-hojo__choice {
+  padding: 22px 24px;
+  border: 1px dashed rgba(255, 255, 255, .24);
+  border-radius: var(--radius-lg);
+  background: rgba(7, 7, 15, .55);
+}
+.lp-hojo__choice-label {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .04em;
+  color: var(--text-mute);
+}
+.lp-hojo__choice h3 {
+  margin-top: 6px;
+  font-size: 19px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--text);
+}
+.lp-hojo__choice p {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text-soft);
+}
+.lp-hojo__vs {
+  align-self: center;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--bg-3);
+  color: var(--text);
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: .04em;
+}
+.lp-hojo__answer {
+  margin-top: 32px;
+}
+.lp-hojo__answer-arrow {
+  display: block;
+  font-size: 26px;
+  line-height: 1;
+  color: var(--pink-light);
+}
+.lp-hojo__answer-label {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  background: var(--grad-pink);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.lp-hojo__answer-big {
+  margin-top: 14px;
+  font-size: clamp(22px, 2.9vw, 30px);
+  font-weight: 900;
+  line-height: 1.5;
+  color: var(--text);
+}
+.lp-hojo__answer-sub {
+  margin-top: 8px;
+  font-size: 14.5px;
+  line-height: 1.8;
+  color: var(--text-soft);
+}
+.lp-hojo__answer-note {
+  margin-top: 4px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text-mute);
+}
+
+/* ---------- 2階建て ---------- */
+.lp-hojo__building {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 880px;
+  margin: 24px auto 0;
+  text-align: left;
+}
+.lp-hojo__floor {
+  display: grid;
+  grid-template-columns: 170px 1fr;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+}
+.lp-hojo__floor--2f {
+  border-color: rgba(231, 47, 194, .45);
+  background: linear-gradient(135deg, rgba(231, 47, 194, .14), rgba(139, 45, 215, .12));
+}
+.lp-hojo__floor-side {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+  padding: 22px 20px;
+  border-right: 1px solid var(--line-soft);
+}
+.lp-hojo__floor-no {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text);
+}
+.lp-hojo__floor--2f .lp-hojo__floor-no {
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lp-hojo__floor-when {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text-soft);
+}
+.lp-hojo__floor-side .lp-hojo__tag {
+  align-self: flex-start;
+}
+.lp-hojo__floor-body {
+  padding: 22px 26px;
+}
+.lp-hojo__floor-body h3 {
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.5;
+  color: var(--text);
+}
+.lp-hojo__floor-body ul {
+  margin: 10px 0 0;
+  padding-left: 1.1em;
+  font-size: 13.5px;
+  line-height: 1.9;
+  color: var(--text-soft);
+}
+.lp-hojo__after {
+  margin-top: 14px;
+  font-size: 13.5px;
+  color: var(--text-soft);
+}
+
+/* ---------- 押さえておきたい3つのルール ---------- */
+.lp-hojo__rules-title {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--text);
+}
+.lp-hojo__facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 22px;
+}
+.lp-hojo__fact {
+  padding: 26px 22px 24px;
+  background: linear-gradient(180deg, var(--bg-2), var(--bg-1));
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+.lp-hojo__fact--key {
+  background: linear-gradient(135deg, rgba(231, 47, 194, .14), rgba(139, 45, 215, .12));
+  border-color: rgba(231, 47, 194, .45);
+}
+.lp-hojo__fact-big {
+  font-size: 30px;
+  font-weight: 900;
+  line-height: 1.2;
+  background: var(--grad-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lp-hojo__fact-big small {
+  font-size: 15px;
+}
+.lp-hojo__fact-label {
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text);
+}
+.lp-hojo__fact-sub {
+  margin-top: 8px;
+  font-size: 12.5px;
+  line-height: 1.75;
+  color: var(--text-mute);
+}
+
+/* ---------- 補足（ほかの助成金） ---------- */
+.lp-hojo__more {
+  margin-top: 22px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-soft);
+}
+
+/* ---------- レスポンシブ ---------- */
+@media (max-width: 768px) {
+  .lp-hojo__badge {
+    align-items: flex-start;
+    padding: 14px 16px;
+  }
+  .lp-hojo__badge-mark {
+    width: 44px;
+    height: 44px;
+    font-size: 11px;
+  }
+  .lp-hojo__dilemma-panel {
+    margin-top: 44px;
+    padding: 32px 18px 26px;
+  }
+  .lp-hojo__vs-wrap {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .lp-hojo__vs {
+    justify-self: center;
+    width: 44px;
+    height: 44px;
+    font-size: 13px;
+  }
+  .lp-hojo__choice {
+    padding: 18px;
+  }
+  .lp-hojo__choice h3 {
+    font-size: 17.5px;
+  }
+  .lp-hojo__floor {
+    grid-template-columns: 1fr;
+  }
+  .lp-hojo__floor-side {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 8px 12px;
+    padding: 16px 18px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line-soft);
+  }
+  .lp-hojo__floor-no {
+    font-size: 24px;
+  }
+  .lp-hojo__floor-body {
+    padding: 18px;
+  }
+  .lp-hojo__rules-title {
+    margin-top: 48px;
+    font-size: 18px;
+  }
+  .lp-hojo__facts {
+    grid-template-columns: 1fr;
+  }
+}

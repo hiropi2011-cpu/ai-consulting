@@ -2238,3 +2238,13 @@ main { padding-top: 68px; }
 }
 .footer-info__legal a:hover,
 .footer-info__legal a:focus-visible { color: var(--pink-light); }
+
+/* ===============================================
+   会社概要（公式サイト・LP共通）2026-10-14
+   =============================================== */
+/* 語の途中で折り返さない部品 */
+.u-nw { white-space: nowrap; }
+/* 各行に直接書かれた列指定（style属性）が、1024px以下の1列表示（RESPONSIVEの .pricing-row）を打ち消していたのを戻す */
+@media (max-width: 1024px) {
+  #company .pricing-row { grid-template-columns: 1fr !important; }
+}
