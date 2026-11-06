@@ -22,8 +22,11 @@
 <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=20261106a">
+<!-- 文字データは裏で読み込み、そろってから1回で切り替える（js/fonts.js）。wght@400..900 は太さの指定をまとめたもので、文字ファイルは前と同じ（2026-11-06） -->
+<link id="aic-fonts" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all';if(window.aicFontsLoad)aicFontsLoad()">
+<script>try{if(sessionStorage.getItem('aicFonts')){document.getElementById('aic-fonts').media='all';document.documentElement.classList.add('fonts-loaded')}}catch(e){}</script>
+<script src="../js/fonts.js?v=20261106a" defer></script>
+<link rel="stylesheet" href="../css/style.css?v=20261106b">
 <!-- アクセス解析（IDは js/analytics.js に書く）2026-11-06 -->
 <script src="/js/analytics.js?v=20261106a" defer></script>
 </head>

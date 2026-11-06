@@ -22,8 +22,11 @@
 <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=20261106a">
+<!-- 文字データは裏で読み込み、そろってから1回で切り替える（js/fonts.js）。wght@400..900 は太さの指定をまとめたもので、文字ファイルは前と同じ（2026-11-06） -->
+<link id="aic-fonts" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all';if(window.aicFontsLoad)aicFontsLoad()">
+<script>try{if(sessionStorage.getItem('aicFonts')){document.getElementById('aic-fonts').media='all';document.documentElement.classList.add('fonts-loaded')}}catch(e){}</script>
+<script src="../js/fonts.js?v=20261106a" defer></script>
+<link rel="stylesheet" href="../css/style.css?v=20261106b">
 <!-- 検索エンジン向けの情報（構造化データ）。よくある質問は本文と同じ文面 2026-11-06 -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://ai-consulting.jp/services/education.html#service","name":"通信制高校向けAIソリューション導入支援","serviceType":"通信制高校向けAIソリューション導入支援","description":"通信制高校の運営課題を、最新のAIで解決します。生徒の学習支援から校務効率化まで、現場に寄り添ったご提案を行います。","url":"https://ai-consulting.jp/services/education.html","areaServed":{"@type":"Country","name":"JP"},"provider":{"@type":"Organization","@id":"https://ai-consulting.jp/#organization","name":"AIコンサルティング株式会社","url":"https://ai-consulting.jp/"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ホーム","item":"https://ai-consulting.jp/"},{"@type":"ListItem","position":2,"name":"通信制高校向けAIソリューション導入支援","item":"https://ai-consulting.jp/services/education.html"}]}]}</script>
 <!-- アクセス解析（IDは js/analytics.js に書く）2026-11-06 -->

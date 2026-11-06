@@ -6,3 +6,19 @@ RewriteRule ^ https://ai-consulting.jp%{REQUEST_URI} [R=301,L]
 
 # show our own page for missing URLs
 ErrorDocument 404 /404.html
+
+# 2026-11-06 let browsers reuse images, video, css and js on repeat visits.
+# css, js and video addresses carry ?v=, so a new version is a new address.
+# An image replaced under the same name can stay old for returning visitors for up to 30 days: use a new name.
+# html is always re-checked, so page updates show without a forced reload.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 30 days"
+  ExpiresByType image/png "access plus 30 days"
+  ExpiresByType image/svg+xml "access plus 30 days"
+  ExpiresByType video/mp4 "access plus 30 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+  ExpiresByType text/javascript "access plus 7 days"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

@@ -22,8 +22,11 @@
 <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../css/style.css?v=20261106a">
+<!-- 文字データは裏で読み込み、そろってから1回で切り替える（js/fonts.js）。wght@400..900 は太さの指定をまとめたもので、文字ファイルは前と同じ（2026-11-06） -->
+<link id="aic-fonts" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all';if(window.aicFontsLoad)aicFontsLoad()">
+<script>try{if(sessionStorage.getItem('aicFonts')){document.getElementById('aic-fonts').media='all';document.documentElement.classList.add('fonts-loaded')}}catch(e){}</script>
+<script src="../js/fonts.js?v=20261106a" defer></script>
+<link rel="stylesheet" href="../css/style.css?v=20261106b">
 <link rel="stylesheet" href="lp.css?v=20261106a">
 <!-- 検索エンジン向けの情報（構造化データ）。よくある質問は本文と同じ文面 2026-11-06 -->
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Service","@id":"https://ai-consulting.jp/lp/#service","name":"中小企業向けAI導入支援","serviceType":"AI導入コンサルティング","description":"ChatGPTは使っている。でも業務は変わっていない。業務の属人化を解くための、中小企業の現場に伴走するAI導入支援。まずは無料の実践セミナーで、御社の業務をその場でAIに任せてみてください。デジタル化・AI導入補助金にも対応。","url":"https://ai-consulting.jp/lp/","areaServed":{"@type":"Country","name":"JP"},"provider":{"@type":"Organization","@id":"https://ai-consulting.jp/#organization","name":"AIコンサルティング株式会社","url":"https://ai-consulting.jp/"}},{"@type":"FAQPage","@id":"https://ai-consulting.jp/lp/#faq","mainEntity":[{"@type":"Question","name":"実践セミナーは、本当に無料ですか？","acceptedAnswer":{"@type":"Answer","text":"はい、費用はいただきません。その後のご契約義務もなく、無理な勧誘もいたしません。まず一度、AIが御社の業務で何をできるのかをご覧ください。"}},{"@type":"Question","name":"セミナーには何人まで参加できますか？","acceptedAnswer":{"@type":"Answer","text":"経営者おひとりから、全社員の皆さままで対応しています。実際に全社員20名でご参加いただいた例もあります。オンラインでの実施も可能です。"}},{"@type":"Question","name":"AIに詳しくないのですが、大丈夫ですか？","acceptedAnswer":{"@type":"Answer","text":"もちろんです。これからAI活用を始める中小企業さまこそ、私たちの主なお客様です。専門用語を使わず、現場目線でご説明します。"}},{"@type":"Question","name":"小規模事業者でも依頼できますか？","acceptedAnswer":{"@type":"Answer","text":"はい。むしろ少人数体制ほどAIエージェントの効果が出やすい領域です。一業務からのスモールスタートに対応しています。"}},{"@type":"Question","name":"どの程度の期間で効果が出ますか？","acceptedAnswer":{"@type":"Answer","text":"業務範囲によりますが、限定的な業務であれば数週間〜1ヶ月程度で効果が見え始めるケースが多いです。"}},{"@type":"Question","name":"機密情報の取り扱いは安全ですか？","acceptedAnswer":{"@type":"Answer","text":"NDA（秘密保持契約）を締結のうえ、厳格な情報管理を徹底しております。安心してご相談ください。"}},{"@type":"Question","name":"特定のAI製品の代理店ですか？","acceptedAnswer":{"@type":"Answer","text":"いいえ。特定ベンダーに属さない独立系の立場で、お客様にとって最適なAIを中立的にご提案します。"}}]}]}</script>
@@ -58,7 +61,7 @@
   <div class="lp-hero__media" aria-hidden="true">
     <picture>
       <source media="(max-width: 768px)" srcset="../images/photos/hero-mobile.jpg">
-      <img src="../images/photos/hero.jpg" alt="" loading="eager">
+      <img src="../images/photos/hero.jpg" alt="" loading="eager" fetchpriority="high">
     </picture>
     <video id="lpHeroStory" class="lp-hero__video" data-src="../media/hero-story.mp4?v=2" data-src-mobile="../media/hero-story-mobile.mp4?v=2" muted playsinline preload="none"></video>
     <video id="lpHeroLoop" class="lp-hero__video" data-src="../media/hero-loop.mp4?v=3" data-src-mobile="../media/hero-loop-mobile.mp4?v=3" muted playsinline loop preload="none"></video>
@@ -627,7 +630,7 @@
 <!-- ============== PROCESS ============== -->
 <section class="lp-process" id="process">
   <div class="lp-process__bg" aria-hidden="true">
-    <img src="../images/lp/process-bg.jpg" alt="">
+    <img src="../images/lp/process-bg.jpg" alt="" loading="lazy">
   </div>
   <div class="container">
     <div class="section-center">
@@ -820,7 +823,7 @@
 
     <div class="instructor" style="margin-top: 48px;">
       <div class="instructor__photo">
-        <img src="../images/services/instructor-nakata.png" alt="代表取締役 中田 博之" loading="lazy">
+        <img src="../images/services/instructor-nakata.jpg" alt="代表取締役 中田 博之" loading="lazy">
       </div>
       <div class="instructor__body">
         <div class="instructor__role">代表取締役 / セミナー講師</div>

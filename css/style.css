@@ -44,8 +44,9 @@
   --radius-xl:   28px;
 
   /* Typography */
-  --font-sans:   'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
-  --font-display:'Noto Sans JP', sans-serif;
+  /* 最初は端末の標準の文字。文字データがそろったら js/fonts.js が html に fonts-loaded を付けて切り替える（2026-11-06） */
+  --font-sans:   'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-display:'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
 }
 
 html { scroll-behavior: smooth; }
@@ -2317,4 +2318,12 @@ main { padding-top: 68px; }
   text-align: right;
   font-size: 13px;
   color: var(--text-mute);
+}
+
+/* ===============================================
+   文字データがそろった後の書体（js/fonts.js が html に付ける）2026-11-06
+   =============================================== */
+html.fonts-loaded {
+  --font-sans:   'Noto Sans JP', 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif;
+  --font-display:'Noto Sans JP', sans-serif;
 }
