@@ -27,6 +27,8 @@
 <link id="aic-fonts" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400..900&display=swap" rel="stylesheet" media="print" onload="this.media='all';if(window.aicFontsLoad)aicFontsLoad()">
 <script>try{if(sessionStorage.getItem('aicFonts')){document.getElementById('aic-fonts').media='all';document.documentElement.classList.add('fonts-loaded')}}catch(e){}</script>
 <script src="js/fonts.js?v=20261106a" defer></script>
+<!-- LINEの中でだけ別タブの指定を外す（2026-11-06） -->
+<script src="js/inapp-links.js?v=20261106a" defer></script>
 <!-- アプリ内ブラウザでスクロール位置が残るのを防ぐ（2026-11-06） -->
 <script src="js/inapp-top.js?v=20261106a" defer></script>
 <link rel="stylesheet" href="css/style.css?v=20261106b">
@@ -886,7 +888,9 @@
     tryPlayStory().catch(() => {
       // 自動再生がブロックされたら、最初の操作(タップ/クリック/スクロール)で再挑戦。
       // それでも不可ならループ動画だけでも試す
-      const retry = () => {
+      const retry = (e) => {
+        // リンクやボタンを押したときは再生を始めない（押した動作が消えることがあるため。2026-11-06）
+        if (e.target.closest && e.target.closest('a, button, summary, label, input, select, textarea')) return;
         window.removeEventListener('pointerdown', retry);
         window.removeEventListener('touchstart', retry);
         window.removeEventListener('scroll', retry);
