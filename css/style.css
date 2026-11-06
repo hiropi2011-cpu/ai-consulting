@@ -2279,3 +2279,42 @@ main { padding-top: 68px; }
 }
 /* 新カードの写真：2人の顔が枠に収まるよう、見せる位置を上へ */
 .service-card--featured .service-card__top img { object-position: center top; }
+
+/* ===============================================
+   プライバシーポリシー（privacy/index.html 専用）2026-11-06
+   =============================================== */
+.legal-policy h2 {
+  font-size: 20px;
+  line-height: 1.5;
+  margin: 52px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line-soft);
+}
+.legal-policy h2:first-child { margin-top: 0; }
+.legal-policy p,
+.legal-policy li {
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--text-soft);
+}
+.legal-policy p { margin: 0 0 14px; }
+.legal-policy ul {
+  list-style: disc;
+  margin: 0 0 14px;
+  padding-left: 1.4em;
+}
+.legal-policy li { margin-bottom: 6px; }
+.legal-policy a {
+  color: var(--pink-light);
+  text-decoration: underline;
+  text-decoration-color: rgba(231,47,194,.4);
+  overflow-wrap: anywhere;
+}
+.legal-policy .btn { text-decoration: none; }
+.legal-policy .pricing-table { margin-bottom: 18px; }
+.legal-policy__date {
+  margin-top: 44px;
+  text-align: right;
+  font-size: 13px;
+  color: var(--text-mute);
+}

@@ -1,0 +1,8 @@
+# 2026-11-06 unify to https without www (so search does not split the site into duplicates)
+RewriteEngine On
+RewriteCond %{HTTPS} off [OR]
+RewriteCond %{HTTP_HOST} ^www\. [NC]
+RewriteRule ^ https://ai-consulting.jp%{REQUEST_URI} [R=301,L]
+
+# show our own page for missing URLs
+ErrorDocument 404 /404.html
